@@ -1,0 +1,3077 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثقة باي (Theqa Pay) — العرض التقديمي الشامل للشركة والمستثمرين</title>
+  
+  <!-- خطوط Google الرسمية: Cairo و JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Theqa Pay Design System Tokens ───────────────────────── */
+    :root {
+      --primary: #059669;
+      --primary-neon: #10B981;
+      --primary-light: #34D399;
+      --primary-deep: #064E3B;
+      --primary-mint: #ECFDF5;
+      
+      --bg-dark: #07151B;
+      --bg-darker: #02070A;
+      --surface-dark: #0B1E28;
+      --surface-card: #0F2836;
+      --surface-hover: #133345;
+      --border-dark: #1E3A4C;
+      --border-glow: rgba(16, 185, 129, 0.35);
+
+      --gold: #F59E0B;
+      --gold-light: #FDE68A;
+      --rose: #EF4444;
+      --rose-light: #FEE2E2;
+      --blue: #3B82F6;
+      --teal: #14B8A6;
+
+      --text-main: #FFFFFF;
+      --text-sub: #E2E8F0;
+      --text-muted: #94A3B8;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      
+      --shadow-card: 0 16px 36px -8px rgba(0, 0, 0, 0.45);
+      --shadow-neon: 0 0 30px rgba(16, 185, 129, 0.25);
+      --shadow-gold: 0 0 25px rgba(245, 158, 11, 0.22);
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      user-select: none;
+    }
+
+    /* Ambient Background Effects */
+    .ambient-glow-1 {
+      position: fixed;
+      top: -150px;
+      right: -100px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(5, 150, 105, 0.18) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-glow-2 {
+      position: fixed;
+      bottom: -150px;
+      left: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.12) 0%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Top Header Navigation ──────────────────────────────── */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      background: rgba(7, 21, 27, 0.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 100;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-img {
+      height: 38px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.3));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
+      color: #FFF;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--primary-neon);
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Progress indicator in top bar */
+    .slide-progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-neon), var(--gold));
+      transition: width 0.4s ease;
+      z-index: 101;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .slide-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--primary-neon);
+      background: var(--surface-card);
+      border: 1px solid var(--border-dark);
+      padding: 6px 16px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: var(--surface-card);
+      color: var(--text-sub);
+      border: 1px solid var(--border-dark);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .nav-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--primary-neon);
+      color: #FFF;
+      transform: translateY(-2px);
+    }
+
+    .nav-btn.primary {
+      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
+      border-color: var(--primary-neon);
+      color: #FFF;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+    }
+
+    .nav-btn.primary:hover {
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+    }
+
+    /* ── Main Presentation Canvas ────────────────────────────── */
+    .presentation-container {
+      position: relative;
+      height: calc(100vh - 68px - 62px);
+      margin-top: 68px;
+      padding: 24px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .slide {
+      position: absolute;
+      width: 95%;
+      max-width: 1460px;
+      height: 94%;
+      max-height: 820px;
+      background: var(--surface-dark);
+      border: 1.5px solid var(--border-dark);
+      border-radius: var(--radius-xl);
+      padding: 38px 48px;
+      display: flex;
+      gap: 36px;
+      box-shadow: var(--shadow-card);
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.96) translateY(20px);
+      transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+      z-index: 20;
+    }
+
+    /* Slide Content Layouts */
+    .slide-col-left {
+      flex: 1.15;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+      padding-left: 12px;
+    }
+
+    .slide-col-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .slide-full-col {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+    }
+
+    /* Headers & Typography */
+    .slide-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-neon);
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .slide-category span.badge-num {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--primary-neon);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .slide-title {
+      font-size: 34px;
+      font-weight: 900;
+      color: #FFF;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .slide-title span.highlight {
+      background: linear-gradient(120deg, var(--primary-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-lead {
+      font-size: 16px;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    /* Feature Cards & Grid */
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .feature-item {
+      background: var(--surface-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      border-color: var(--primary-neon);
+      transform: translateX(-4px);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--primary-neon);
+      color: var(--primary-neon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 3px;
+    }
+
+    .feature-text p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Screen Mockup Container */
+    .mockup-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 100%;
+      width: 100%;
+    }
+
+    /* ── High-Fidelity Smartphone Mockup Frame System ───────────── */
+    .device-frame {
+      background: #000000;
+      border: 3.5px solid #1E3A4C;
+      border-radius: 42px;
+      padding: 0;
+      box-shadow: 
+        0 0 0 1.5px rgba(255, 255, 255, 0.12),
+        0 25px 60px -10px rgba(0, 0, 0, 0.85), 
+        0 0 35px rgba(16, 185, 129, 0.22);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      box-sizing: border-box;
+      aspect-ratio: 9 / 19.5;
+    }
+
+    .device-frame:hover {
+      border-color: var(--primary-neon);
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 
+        0 0 0 2px var(--primary-neon),
+        0 30px 70px -10px rgba(0, 0, 0, 0.9), 
+        0 0 50px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Top Status Bar Strip */
+    .mockup-status-bar {
+      width: 100%;
+      height: 26px;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      box-sizing: border-box;
+      z-index: 25;
+      flex-shrink: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 0.2px;
+      direction: ltr; /* keep time left, icons right */
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .msb-camera-pill {
+      width: 52px;
+      height: 6px;
+      background: #080e14;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.9);
+    }
+
+    .msb-icons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .msb-wifi-icon {
+      width: 12px;
+      height: 12px;
+      fill: #FFFFFF;
+    }
+
+    .msb-battery {
+      width: 18px;
+      height: 9px;
+      border: 1.2px solid #FFFFFF;
+      border-radius: 2.5px;
+      padding: 1px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .msb-battery::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: 2px;
+      width: 1.5px;
+      height: 3px;
+      background: #FFFFFF;
+      border-radius: 0 1px 1px 0;
+    }
+
+    .msb-battery-fill {
+      width: 80%;
+      height: 100%;
+      background: #10B981;
+      border-radius: 1px;
+    }
+
+    /* Screen display image */
+    .device-screen-img {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      height: 100%;
+      max-height: calc(100% - 44px);
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      border-radius: 14px;
+      background: #000000;
+      padding: 0 3px;
+      box-sizing: border-box;
+    }
+
+    /* Bottom Chin Strip */
+    .mockup-bottom-chin {
+      width: 100%;
+      height: 18px;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 25;
+      flex-shrink: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .msb-home-pill {
+      width: 68px;
+      height: 3.5px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+    }
+
+    .mockup-wrapper .device-frame {
+      height: 600px;
+      max-height: 82vh;
+    }
+
+    .dual-mockup-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .dual-mockup-wrapper .device-frame {
+      height: 520px;
+      max-height: 74vh;
+    }
+
+    .dual-mockup-wrapper .device-screen-img {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      height: 100%;
+      max-height: calc(100% - 44px);
+      object-fit: contain;
+      object-position: center;
+      border-radius: 14px;
+    }
+
+    /* Dedicated Placeholder Slots for Custom User Images */
+    .mockup-placeholder {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px 14px;
+      background: linear-gradient(165deg, rgba(11, 30, 40, 0.95), rgba(4, 10, 14, 0.98));
+      border: 2px dashed rgba(16, 185, 129, 0.45);
+      border-radius: 18px;
+      gap: 10px;
+      transition: var(--transition);
+      cursor: pointer;
+      box-sizing: border-box;
+      margin: 0 4px;
+    }
+
+    .mockup-placeholder:hover {
+      border-color: var(--primary-neon);
+      background: linear-gradient(165deg, rgba(16, 185, 129, 0.08), rgba(4, 10, 14, 0.98));
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+    }
+
+    .ph-glow-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1.5px solid var(--primary-neon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+    }
+
+    .ph-icon {
+      font-size: 28px;
+    }
+
+    .ph-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #FFF;
+      letter-spacing: -0.3px;
+    }
+
+    .ph-subtitle {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+
+    .ph-hint {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      background: rgba(7, 21, 27, 0.8);
+      border: 1px solid var(--border-dark);
+      padding: 10px 14px;
+      border-radius: 12px;
+      width: 100%;
+    }
+
+    .ph-filename {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      direction: ltr;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .ph-subhint {
+      display: block;
+      color: var(--text-muted);
+      font-size: 10.5px;
+      margin-top: 3px;
+    }
+
+    .ph-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--primary-neon);
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--border-glow);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    .slide[data-slide="7"] .slide-col-left,
+    .slide[data-slide="8"] .slide-col-left,
+    .slide[data-slide="9"] .slide-col-left,
+    .slide[data-slide="10"] .slide-col-left {
+      justify-content: flex-start;
+      gap: 14px;
+    }
+
+    .slide[data-slide="7"] .slide-title,
+    .slide[data-slide="8"] .slide-title,
+    .slide[data-slide="9"] .slide-title,
+    .slide[data-slide="10"] .slide-title {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .slide[data-slide="7"] .slide-lead,
+    .slide[data-slide="8"] .slide-lead,
+    .slide[data-slide="9"] .slide-lead,
+    .slide[data-slide="10"] .slide-lead {
+      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 1.55;
+    }
+
+    .slide[data-slide="5"] .features-list,
+    .slide[data-slide="7"] .features-list,
+    .slide[data-slide="8"] .features-list,
+    .slide[data-slide="9"] .features-list,
+    .slide[data-slide="10"] .features-list {
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .slide[data-slide="5"] .feature-item,
+    .slide[data-slide="7"] .feature-item,
+    .slide[data-slide="8"] .feature-item,
+    .slide[data-slide="9"] .feature-item,
+    .slide[data-slide="10"] .feature-item {
+      padding: 9px 13px;
+      gap: 12px;
+    }
+
+    .slide[data-slide="5"] .feature-icon,
+    .slide[data-slide="7"] .feature-icon,
+    .slide[data-slide="8"] .feature-icon,
+    .slide[data-slide="9"] .feature-icon,
+    .slide[data-slide="10"] .feature-icon {
+      width: 34px;
+      height: 34px;
+      font-size: 15px;
+    }
+
+    .slide[data-slide="5"] .feature-text h4,
+    .slide[data-slide="7"] .feature-text h4,
+    .slide[data-slide="8"] .feature-text h4,
+    .slide[data-slide="9"] .feature-text h4,
+    .slide[data-slide="10"] .feature-text h4 {
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .slide[data-slide="5"] .feature-text p,
+    .slide[data-slide="7"] .feature-text p,
+    .slide[data-slide="8"] .feature-text p,
+    .slide[data-slide="9"] .feature-text p,
+    .slide[data-slide="10"] .feature-text p {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .slide[data-slide="7"] .metrics-row,
+    .slide[data-slide="8"] .metrics-row,
+    .slide[data-slide="9"] .metrics-row,
+    .slide[data-slide="10"] .metrics-row {
+      margin-top: 2px;
+    }
+
+    .triple-mockup-wrapper {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .triple-mockup-wrapper .device-frame {
+      height: 480px;
+      max-height: 70vh;
+      border-radius: 36px;
+    }
+
+    .triple-mockup-wrapper .mockup-status-bar {
+      height: 24px;
+      font-size: 9.5px;
+      padding: 0 10px;
+    }
+
+    .triple-mockup-wrapper .msb-camera-pill {
+      width: 44px;
+      height: 5px;
+    }
+
+    .triple-mockup-wrapper .mockup-bottom-chin {
+      height: 16px;
+    }
+
+    .triple-mockup-wrapper .msb-home-pill {
+      width: 56px;
+      height: 3px;
+    }
+
+    .triple-mockup-wrapper .device-screen-img {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      height: 100%;
+      max-height: calc(100% - 40px);
+      object-fit: contain;
+      object-position: center;
+      border-radius: 12px;
+    }
+
+    /* ── Slide 17: Dramatic 3D Perspective Showcase ── */
+    .screens-showcase-trio {
+      display: flex;
+      gap: 0;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      perspective: 1200px;
+      perspective-origin: 50% 45%;
+      position: relative;
+    }
+
+    /* Radial ambient glow behind the phones */
+    .screens-showcase-trio::before {
+      content: '';
+      position: absolute;
+      inset: -20% -10%;
+      background: radial-gradient(ellipse 80% 70% at 50% 55%,
+        rgba(16, 185, 129, 0.12) 0%,
+        rgba(6, 182, 212, 0.06) 45%,
+        transparent 75%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .showcase-screen-card {
+      width: 170px;
+      flex-shrink: 0;
+      height: 360px;
+      background: #010b10;
+      border: 1.5px solid rgba(16, 185, 129, 0.4);
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* ── Left card: rotated away ── */
+    .showcase-screen-card.card-left {
+      transform: rotateY(35deg) rotateX(4deg) translateX(30px) scale(0.88);
+      z-index: 1;
+      border-color: rgba(16, 185, 129, 0.25);
+      box-shadow:
+        -8px 20px 50px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(16, 185, 129, 0.08),
+        inset 0 0 30px rgba(0, 0, 0, 0.5);
+      opacity: 0.85;
+    }
+
+    /* ── Center card: front-facing hero ── */
+    .showcase-screen-card.card-center {
+      width: 200px;
+      height: 430px;
+      z-index: 10;
+      border-color: var(--primary-neon);
+      border-width: 2px;
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.95),
+        0 0 60px rgba(16, 185, 129, 0.35),
+        0 0 120px rgba(16, 185, 129, 0.12),
+        inset 0 0 0 1px rgba(16, 185, 129, 0.15);
+      animation: phoneFloat 4s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    @keyframes phoneFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    /* ── Right card: rotated away (mirrored) ── */
+    .showcase-screen-card.card-right {
+      transform: rotateY(-35deg) rotateX(4deg) translateX(-30px) scale(0.88);
+      z-index: 1;
+      border-color: rgba(16, 185, 129, 0.25);
+      box-shadow:
+        8px 20px 50px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(16, 185, 129, 0.08),
+        inset 0 0 30px rgba(0, 0, 0, 0.5);
+      opacity: 0.85;
+    }
+
+    /* Glow halo behind center card */
+    .showcase-screen-card.card-center::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 34px;
+      background: transparent;
+      box-shadow: 0 0 50px 8px rgba(16, 185, 129, 0.3);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .showcase-badge-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(7, 21, 27, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(16, 185, 129, 0.6);
+      color: var(--primary-neon);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      z-index: 20;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+
+    .showcase-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* ── Slide 18: Lead Developer Profile & Engineering Portfolio ── */
+    .developer-slide-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 22px;
+      align-items: stretch;
+      width: 100%;
+      height: 100%;
+    }
+
+    .dev-profile-card {
+      background: linear-gradient(165deg, rgba(11, 30, 40, 0.92), rgba(5, 15, 20, 0.98));
+      border: 2px solid rgba(16, 185, 129, 0.35);
+      border-radius: 26px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(16, 185, 129, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dev-avatar-wrap {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 12px;
+    }
+
+    .dev-avatar-ring {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-neon), #059669, #0284c7);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+    }
+
+    .dev-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #07151B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      color: #FFF;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .dev-status-dot {
+      position: absolute;
+      bottom: 3px;
+      right: 3px;
+      width: 16px;
+      height: 16px;
+      background: #10B981;
+      border: 3px solid #07151B;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+    }
+
+    .dev-name {
+      font-size: 21px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 3px;
+    }
+
+    .dev-title {
+      font-size: 13px;
+      color: var(--primary-neon);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .dev-bio {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .dev-contact-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .dev-contact-chip {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 11.5px;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .dev-contact-chip:hover {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: var(--primary-neon);
+      color: #FFF;
+      transform: translateX(-4px);
+    }
+
+    .dev-achievements-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .dev-pillar-card {
+      background: var(--surface-card);
+      border: 1.5px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 11px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+
+    .dev-pillar-card:hover {
+      border-color: var(--primary-neon);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .dev-pillar-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .dev-pillar-body h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 2px;
+    }
+
+    .dev-pillar-body p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .slide[data-slide="17"] .features-list {
+      gap: 7px;
+      margin-bottom: 7px;
+    }
+    .slide[data-slide="17"] .feature-item {
+      padding: 8px 12px;
+      gap: 10px;
+    }
+    .slide[data-slide="17"] .feature-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+    }
+    .slide[data-slide="17"] .feature-text h4 {
+      font-size: 13.5px;
+      margin-bottom: 2px;
+    }
+    .slide[data-slide="17"] .feature-text p {
+      font-size: 11.5px;
+      line-height: 1.4;
+    }
+
+    .slide[data-slide="18"] .metrics-row {
+      margin-top: 2px;
+    }
+    .slide[data-slide="18"] .metric-badge {
+      padding: 6px 12px;
+    }
+    .slide[data-slide="18"] .metric-num {
+      font-size: 17px;
+      margin-bottom: 1px;
+    }
+    .slide[data-slide="18"] .metric-label {
+      font-size: 10.5px;
+    }
+
+    /* Cover Slide Specific */
+    .cover-slide {
+      background: radial-gradient(circle at 75% 30%, rgba(5, 150, 105, 0.25) 0%, var(--surface-dark) 60%);
+      border: 2px solid var(--border-dark);
+    }
+
+    .cover-title-group h1 {
+      font-size: 52px;
+      font-weight: 900;
+      color: #FFF;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .cover-title-group p {
+      font-size: 20px;
+      color: var(--text-sub);
+      line-height: 1.6;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .metrics-row {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .metric-badge {
+      background: rgba(15, 40, 54, 0.8);
+      border: 1px solid var(--border-dark);
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary-neon);
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    /* Grid Layouts for Specs / Architecture */
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .card-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .spec-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: var(--transition);
+    }
+
+    .spec-card:hover {
+      border-color: var(--primary-neon);
+      transform: translateY(-4px);
+    }
+
+    .spec-card.highlight-card {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, rgba(6, 78, 59, 0.3), var(--surface-card));
+    }
+
+    .spec-card-icon {
+      font-size: 26px;
+      color: var(--primary-neon);
+    }
+
+    .spec-card-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #FFF;
+    }
+
+    .spec-card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Architecture Flow Box */
+    .arch-flow-box {
+      background: #040A0E;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .arch-node {
+      background: var(--surface-card);
+      border: 1px solid var(--primary-neon);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+      width: 22%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .arch-node h5 {
+      color: var(--primary-neon);
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .arch-node p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .arch-arrow {
+      font-size: 22px;
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    /* ── Bottom Controls Bar ────────────────────────────────── */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 62px;
+      background: rgba(7, 21, 27, 0.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 100;
+    }
+
+    .keyboard-hint {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .kbd-chip {
+      background: var(--surface-card);
+      border: 1px solid var(--border-dark);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--primary-neon);
+      font-weight: 700;
+    }
+
+    .nav-arrow-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .arrow-btn {
+      background: var(--surface-card);
+      color: #FFF;
+      border: 1.5px solid var(--border-dark);
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: var(--transition);
+    }
+
+    .arrow-btn:hover:not(:disabled) {
+      background: var(--primary);
+      border-color: var(--primary-neon);
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    }
+
+    .arrow-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .stepper-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: var(--border-dark);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .step-dot.active {
+      width: 32px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-neon));
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+
+    /* ── Speaker Notes Drawer (Toggled by 'S') ───────────────── */
+    .speaker-drawer {
+      position: fixed;
+      bottom: 62px;
+      left: 0;
+      right: 0;
+      max-height: 220px;
+      background: rgba(11, 30, 40, 0.98);
+      backdrop-filter: blur(20px);
+      border-top: 1.5px solid var(--gold);
+      padding: 18px 36px;
+      z-index: 95;
+      transform: translateY(110%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+      overflow-y: auto;
+    }
+
+    .speaker-drawer.open {
+      transform: translateY(0);
+    }
+
+    .speaker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .speaker-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .speaker-content {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* ── Slide Overview Grid Modal (Toggled by 'O') ─────────── */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 10, 14, 0.92);
+      backdrop-filter: blur(25px);
+      z-index: 1000;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s;
+    }
+
+    .overview-modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .overview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .overview-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #FFF;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      overflow-y: auto;
+      padding: 10px 4px 40px;
+    }
+
+    .overview-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 140px;
+    }
+
+    .overview-card:hover {
+      border-color: var(--primary-neon);
+      transform: translateY(-4px);
+      background: var(--surface-hover);
+    }
+
+    .overview-card.current {
+      border-color: var(--primary-neon);
+      border-width: 2px;
+      background: rgba(5, 150, 105, 0.15);
+    }
+
+    .overview-card-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--primary-neon);
+      font-weight: 800;
+    }
+
+    .overview-card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFF;
+      margin-top: 6px;
+    }
+
+    .overview-card-cat {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Print / PDF Mode */
+    @media print {
+      body {
+        overflow: visible !important;
+        height: auto !important;
+      }
+      .top-nav, .bottom-bar, .ambient-glow-1, .ambient-glow-2, .speaker-drawer, .overview-modal {
+        display: none !important;
+      }
+      .presentation-container {
+        height: auto !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+      }
+      .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        page-break-after: always !important;
+        margin-bottom: 40px !important;
+        max-height: none !important;
+        height: 100vh !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Ambience -->
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="top-nav">
+
+      <div class="nav-actions">
+      <button class="nav-btn" onclick="toggleOverviewModal()" title="عرض الفهرس (O)">
+        📑 الفهرس [O]
+      </button>
+ 
+      <button class="nav-btn" onclick="toggleThemeMockups()" title="تبديل الثيم الداكن والفاتح (T)">
+        🌓 الثيم [T]
+      </button>
+       </div>
+
+    
+  
+    </div>
+
+    <div class="nav-center">
+      <div class="slide-counter">
+        <span id="current-slide-num">01</span> / <span id="total-slides-num">18</span>
+      </div>
+    </div>
+
+  
+  
+    </div>
+
+    <!-- Progress line -->
+    <div class="slide-progress-bar" id="slide-progress-bar" style="width: 6.66%;"></div>
+
+        <div class="brand-group">
+      
+      <div class="brand-text">
+        <div class="brand-name">
+          ثقة باي <span class="brand-badge">THEQA PAY 1.0</span>
+          <img src="./presentation_assets/thika_logo.png" ,onerror="this.src='./presentation_assets/thika_logo.png.png'" alt="Theqa Pay Logo" class="brand-logo-img">
+        </div>
+        
+  </header>
+
+  <!-- Presentation Slides Canvas -->
+  <main class="presentation-container">
+
+    <!-- ── SLIDE 1: Cover / الغلاف الرئيسي ────────────────────── -->
+    <section class="slide cover-slide active" data-slide="1" data-cat="نظرة عامة" data-title="غلاف المشروع والرؤية">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">01</span> الجيل الجديد للتقنية المالية لنقاط البيع • POS FINTECH
+          </div>
+          <div class="cover-title-group">
+            <h1>ثقة باي <span class="highlight">Theqa Pay</span></h1>
+            <p>التطبيق المتكامل للمدفوعات الرقمية والشحن وإدارة المحافظ والتحصيل الفوري المصمم خصيصاً للتجار وماكينات الدفع الإلكتروني (Android POS & Sunmi Terminals).</p>
+          </div>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <h4>سرعة فائقة واستجابة فورية</h4>
+              <p>مبني بأحدث تقنيات Jetpack Compose و Clean Architecture لتنفيذ العمليات في أقل من 2.5 ثانية.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>أمان بنكي متقدم وحماية العمليات المعلقة</h4>
+              <p>تشفير AES-256، قفل تلقائي عند الخمول، ومنظومة ذكية للتعافي من انقطاع الإنترنت (Fault-Tolerant Reversal).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-badge">
+            <div class="metric-num">300+</div>
+            <div class="metric-label">خدمة وفاتورة معتمدة</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">&lt; 2.5s</div>
+            <div class="metric-label">متوسط زمن المعاملة</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">100%</div>
+            <div class="metric-label">دعم طباعة Sunmi وصوت الـ POS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="mockup-wrapper">
+          <div class="device-frame">
+            <img src="./presentation_assets/1.png" onerror="this.src='C:/Users/LENOVO/Desktop/ابلكيشن ثقة الجديد/New folder/1.png'" alt="Theqa Pay App Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 2: السوق والمشكلة والحل ──────────────────────── -->
+    <section class="slide" data-slide="2" data-cat="دراسة السوق" data-title="التحديات وحلول ثقة باي المبتكرة">
+      <div class="slide-full-col">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">02</span> تحليل القيمة والسوق • VALUE PROPOSITION
+          </div>
+          <h2 class="slide-title">التحديات التي تواجه التجار اليوم <span class="highlight">وكيف تغلبت ثقة باي عليها</span></h2>
+          <p class="slide-lead">في سوق المدفوعات المصرية السريعة، يعاني التجار من 4 مشاكل رئيسية في ماكينات الـ POS التقليدية؛ صممت ثقة باي معماريتها لإنهاء هذه المعاناة تماماً.</p>
+        </div>
+
+        <div class="card-grid-4">
+          <div class="spec-card">
+            <div class="spec-card-icon">⚠️</div>
+            <div class="spec-card-title">تعليق العمليات وضياع الأموال</div>
+            <div class="spec-card-desc">عند سقوط الشبكة يتم خصم الرصيد دون خروج البون. في ثقة باي قمنا ببناء **Pending Transaction Recovery** للاسترجاع الفوري التلقائي.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">🐢</div>
+            <div class="spec-card-title">بطء وتعقيد الوصول للخدمة</div>
+            <div class="spec-card-desc">البحث داخل 50 قسم يستهلك وقتاً ويزيد طوابير الزبائن. وفرنا **لوحة أرقام سريعة (Code Keypad)** للوصول برقم الكود في ثانية واحدة.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">🖨️</div>
+            <div class="spec-card-title">تلف ومشاكل البونات الحرارية</div>
+            <div class="spec-card-desc">بونات غير واضحة وتفتقر للباركود. دمجنا محرك طباعة **Sunmi ESC/POS** مع باركود وQR وتنبيه صوتي لحظي بدون النظر للشاشة.</div>
+          </div>
+          <div class="spec-card highlight-card">
+            <div class="spec-card-icon">🔒</div>
+            <div class="spec-card-title">الأمان والخصوصية في المحل</div>
+            <div class="spec-card-desc">رؤية الزبائن لرصيد التاجر خطر عليه. ابتكرنا **وضع الخصوصية (Privacy Mode)** لإخفاء الرصيد بنقرة، مع القفل الذكي عند انشغال التاجر.</div>
+          </div>
+        </div>
+
+        <div class="arch-flow-box">
+          <div class="arch-node">
+            <h5>طلب العملية</h5>
+            <p>إدخال رقم الكود أو مسح الحساب</p>
+          </div>
+          <div class="arch-arrow">←</div>
+          <div class="arch-node">
+            <h5>استعلام ديناميكي</h5>
+            <p>حساب الرسوم والعمولة والإجمالي</p>
+          </div>
+          <div class="arch-arrow">←</div>
+          <div class="arch-node">
+            <h5>تنفيذ وخصم آمن</h5>
+            <p>تشفير كامل وضمان عدم الخصم المزدوج</p>
+          </div>
+          <div class="arch-arrow">←</div>
+          <div class="arch-node">
+            <h5>بون مطبوع + نطق صوتي</h5>
+            <p>إيصال فوري ونطق "تمت العملية بنجاح"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 3: لغة التصميم والسيستم ديزاين ────────────────── -->
+    <section class="slide" data-slide="3" data-cat="هوية النظام" data-title="نظام التصميم والألوان المعتمدة (Design System)">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">03</span> THEQA DESIGN SYSTEM & TOKENS
+          </div>
+          <h2 class="slide-title">لغة تصميم بصرية <span class="highlight">مخصصة لنقاط البيع (Smart POS)</span></h2>
+          <p class="slide-lead">تم بناء هوية النظام وفق أعلى معايير الـ UX/UI للأجهزة اللمسية والشاشات ذات الإضاءة المتفاوتة، بألوان مدروسة تعكس الثقة والاحترافية.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon" style="background:#059669; color:#FFF;">🎨</div>
+            <div class="feature-text">
+              <h4>اللون الأساسي: الأخضر الزمردي (#059669 / #10B981)</h4>
+              <p>يرمز للأمان والنمو والمالية الموثوقة، مع تباين عالي يمنع إجهاد العين أثناء العمل لـ 14 ساعة يومياً.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon" style="background:#07151B; color:#34D399; border-color:#1E3A4C;">🌑</div>
+            <div class="feature-text">
+              <h4>الوضع الليلي المتخصص للـ POS (#07151B / #0B1E28)</h4>
+              <p>يوفر استهلاك بطارية ماكينات الـ POS بنسبة تصل إلى 28% مع إظهار البطاقات بعمق بصري أنيق.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon" style="background:#F59E0B; color:#FFF;">🔤</div>
+            <div class="feature-text">
+              <h4>تايبوجرافي عربي فائق الوضوح (خط Cairo)</h4>
+              <p>أرقام واضحة لا تقبل اللبس، مع تكبير الخط حسب راحة التاجر دون أن تنكسر البطاقات أو النصوص.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <div class="device-frame">
+            <img src="./presentation_assets/2.png" alt="Dark Mode" class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
+          </div>
+          <div class="device-frame">
+            <img src="./presentation_assets/1.png" alt="Light Mode" class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 4: الدخول والأمان والتحقق ─────────────────────── -->
+    <section class="slide" data-slide="4" data-cat="الأمان والمصادقة" data-title="المصادقة الثلاثية وتأمين حساب التاجر">
+      <div class="slide-col-left" style="flex: 0.95;">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">04</span> AUTHENTICATION & MULTI-LAYER SECURITY
+          </div>
+          <h2 class="slide-title">دورة مصادقة ودخول حصينة <span class="highlight">بحماية ثلاثية متكاملة</span></h2>
+          <p class="slide-lead">حماية رصيد التاجر هي الأولوية القصوى؛ يمر التاجر بمنظومة أمان مشفرة تدعم تسجيل الدخول الموثق، الدخول السريع برمز الـ Quick PIN، والتحقق المزدوج بالـ OTP.</p>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="spec-card">
+            <div class="spec-card-icon">🔑</div>
+            <div class="spec-card-title">تسجيل الدخول وكلمة السر</div>
+            <div class="spec-card-desc">تسجيل سلس برقم التاجر مع التحقق الفوري وخيار إظهار/إخفاء الرمز بأمان.</div>
+          </div>
+          <div class="spec-card highlight-card">
+            <div class="spec-card-icon">🔢</div>
+            <div class="spec-card-title">رمز الـ PIN السريع</div>
+            <div class="spec-card-desc">دخول سريع بـ 4 أو 6 أرقام لتسهيل العمليات السريعة ومنع التعطيل في المحل.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">📲</div>
+            <div class="spec-card-title">رمز التحقق OTP</div>
+            <div class="spec-card-desc">تحقق ثنائي مؤقت بعداد تنازلي لمنع فتح الحساب من أجهزة غير مصرح لها.</div>
+          </div>
+        </div>
+
+        <div class="metric-badge" style="margin-top:16px;">
+          <div class="metric-num">AES-256 GCM + SHA-256</div>
+          <div class="metric-label">تشفير التوكن وكلمات السر والـ PIN داخل مستودع البيانات المشفر EncryptedSharedPreferences</div>
+        </div>
+      </div>
+
+      <div class="slide-col-right" style="flex: 1.4;">
+        <div class="triple-mockup-wrapper">
+          <div class="device-frame" title="شاشة تسجيل الدخول (Login)">
+            <img src="./presentation_assets/3.png" alt="Login Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/3.png" data-light="./presentation_assets/4.png">
+          </div>
+          <div class="device-frame" title="شاشة كود الـ PIN السريع (Quick PIN)">
+            <img src="./presentation_assets/8.png" alt="Quick PIN Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/8.png" data-light="./presentation_assets/7.png">
+          </div>
+          <div class="device-frame" title="شاشة التحقق بالـ OTP">
+            <img src="./presentation_assets/6.png" alt="OTP Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/6.png" data-light="./presentation_assets/5.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 5: الشاشة الرئيسية ولوحة التحكم ───────────────── -->
+    <section class="slide" data-slide="5" data-cat="الواجهة والداشبورد" data-title="لوحة التحكم الرئيسية وسرعة الوصول للخدمات">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">05</span> MERCHANT DASHBOARD & QUICK ACTIONS
+          </div>
+          <h2 class="slide-title">شاشة رئيسية مصممة للسرعة <span class="highlight">وتخصيص كامل من الإعدادات</span></h2>
+          <p class="slide-lead">كل ما يحتاجه التاجر في واجهة واحدة: رصيده اللحظي، وصول سريع للخدمات، مع إمكانية التبديل بين شكلين مختلفين للواجهة مباشرة من الإعدادات.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">👁️</div>
+            <div class="feature-text">
+              <h4>وضع الخصوصية (Privacy Mode)</h4>
+              <p>إخفاء الرصيد وتحويله لـ (***.** ج.م) بنقرة واحدة لحماية خصوصية المحل أمام الزبائن.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎛️</div>
+            <div class="feature-text">
+              <h4>تخصيص نمط العرض من الإعدادات (Dual Layouts)</h4>
+              <p>حرية الاختيار بين النمط الشبكي الكلاسيكي الممتد أو نمط الصفحات المقسمة مع بطاقة السلفة المباشرة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">⌨️</div>
+            <div class="feature-text">
+              <h4>لوحة الأرقام السريعة (Code Keypad Modal)</h4>
+              <p>الضغط على الزر العائم في الأسفل لكتابة كود الخدمة (مثلاً 101) والانتقال المباشر لشاشة الدفع.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📶</div>
+            <div class="feature-text">
+              <h4>شريط مراقبة الاتصال اللحظي</h4>
+              <p>تنبيه مباشر بلون واضح عند ضعف أو انقطاع الإنترنت واختفاء فوري بمجرد استقرار الشبكة.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <!-- ── الشكل الأول: النمط الكلاسيكي الممتد ── -->
+          <div class="device-frame" title="الشاشة الرئيسية - الشكل الأول: النمط الكلاسيكي">
+            <img src="./presentation_assets/1.png"
+                 alt="الشاشة الرئيسية - النمط الكلاسيكي"
+                 class="device-screen-img mockup-image"
+                 data-dark="./presentation_assets/2.png"
+                 data-light="./presentation_assets/1.png">
+          </div>
+          <!-- ── الشكل الثاني: نمط الصفحات وبطاقة السلفة (ho / home) ── -->
+          <div class="device-frame" title="الشاشة الرئيسية - الشكل الثاني: نمط الصفحات وبطاقة السلفة (ho)">
+            <img src="./presentation_assets/ho.png"
+                 alt="الشاشة الرئيسية - نمط الصفحات وبطاقة السلفة"
+                 class="device-screen-img mockup-image"
+                 data-dark="./presentation_assets/home.png"
+                 data-light="./presentation_assets/ho.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 6: محرك الاستعلام ودفع الفواتير الديناميكي ──────── -->
+    <section class="slide" data-slide="6" data-cat="محرك المدفوعات" data-title="الاستعلام الديناميكي واحتساب الرسوم والعمولات">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">06</span> DYNAMIC INQUIRY & PAYMENT ENGINE
+          </div>
+          <h2 class="slide-title">محرك استعلام ديناميكي ذكي <span class="highlight">يتكيف مع كل أنواع الفواتير</span></h2>
+          <p class="slide-lead">يتصل التطبيق مباشرة بمزودي الخدمات لجلب تفاصيل الفاتورة وحساب الرسوم والعمولة الصافية للتاجر بشفافية مطلقة قبل خصم قرش واحد.</p>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="spec-card">
+            <div class="spec-card-icon">📋</div>
+            <div class="spec-card-title">حقول ديناميكية متغيرة</div>
+            <div class="spec-card-desc">الحقول تتولد آلياً حسب متطلبات الخدمة (رقم الهاتف، كود المحافظة، رقم العداد) دون كتابة كود إضافي.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">💰</div>
+            <div class="spec-card-title">شفافية العمولات والرسوم</div>
+            <div class="spec-card-desc">عرض تفصيلي: القيمة الأصلية + الرسوم الإدارية - عمولة التاجر = المبلغ الإجمالي المطلوب تحصيله.</div>
+          </div>
+          <div class="spec-card highlight-card">
+            <div class="spec-card-icon">🛡️</div>
+            <div class="spec-card-title">منع الخصم المزدوج</div>
+            <div class="spec-card-desc">آلية Idempotency و Double-Tap Prevention تمنع تكرار العملية حتى لو ضغط التاجر 10 مرات متتالية.</div>
+          </div>
+        </div>
+
+        <div class="feature-item" style="margin-top:20px;">
+          <div class="feature-icon">✏️</div>
+          <div class="feature-text">
+            <h4>دعم الفواتير القابلة للتعديل والجزئية</h4>
+            <p>إمكانية سداد جزء من الفاتورة أو شحن مبلغ حر في الخدمات التي تسمح بذلك، مع قفل الحقل تلقائياً في الفواتير الإلزامية.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <div class="device-frame">
+            <img src="./presentation_assets/9.png" alt="Dynamic Inquiry" class="device-screen-img mockup-image" data-dark="./presentation_assets/10.png" data-light="./presentation_assets/9.png">
+          </div>
+          <div class="device-frame">
+            <img src="./presentation_assets/18.png" 
+            alt="Payment Confirmation" class="device-screen-img mockup-image"
+   
+            data-dark="./presentation_assets/19.png" data-light="./presentation_assets/18.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 7: شحن كروت الكهرباء والعدادات الذكية ───────────── -->
+    <section class="slide" data-slide="7" data-cat="الكهرباء والمرافق" data-title="شحن كروت العدادات الذكية عبر منفذ الماكينة (IC Chip)">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">07</span> SMART CARDS & IC CHIP SLOT
+          </div>
+          <h2 class="slide-title">شحن وقراءة كروت الكهرباء الذكية <span class="highlight">بإدخال الكارت في منفذ الماكينة (IC Chip)</span></h2>
+          <p class="slide-lead">منظومة ذكية متكاملة لقراءة وشحن كروت عدادات الكهرباء مسبقة الدفع عبر منفذ الشريحة الذكية المدمج بماكينات Sunmi POS مع الحماية التامة للشريحة ومنع تكرار الشحن.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <h4>قراءة فورية لبيانات العداد (APDU Protocol)</h4>
+              <p>إدخال الكارت في منفذ الماكينة لقراءة الشريحة النحاسية في أقل من ثانيتين: جلب رقم العداد، اسم المشترك، الشريحة، والرصيد المتبقي.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>فحص الشحنة القائمة (Charge Exist Protection)</h4>
+              <p>آلية استباقية تفحص حالة الكارت وتمنع الشحن المزدوج إذا كان الكارت يحتوي على شحنة سابقة لم تُفرغ في العداد بعد.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💳</div>
+            <div class="feature-text">
+              <h4>كتابة آمنة للرصيد على الشريحة (Smart Card Writing)</h4>
+              <p>تنبيه صوتي وتحذير يمنع نزع الكارت من الماكينة أثناء الكتابة، مع استرجاع تلقائي للمعاملة عند أي خطأ.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-badge">
+            <div class="metric-num">ISO 7816</div>
+            <div class="metric-label">التوافق القياسي مع شرائح كروت العدادات (جلوبال، السويدي، شمال وجنوب القاهرة، القناة)</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">Zero Risk</div>
+            <div class="metric-label">حماية كاملة من تلف الشريحة ومنع الشحن المكرر</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <!-- ══════════════════════════════════════════════════════════════
+               مكان الصورة الأولى: شاشة قراءة كارت الكهرباء
+               يمكنك حفظ صورتك في presentation_assets باسم 11.png أو تغيير المسار
+          ══════════════════════════════════════════════════════════════ -->
+          <div class="device-frame" title="مكان الصورة الأولى: شاشة قراءة كارت الكهرباء">
+            <img src="./presentation_assets/e.png"
+                 alt="شاشة قراءة كارت العداد"
+                 class="device-screen-img mockup-image"
+                 id="electricity-mockup-1"
+                 data-dark="./presentation_assets/ee.png"
+                 data-light="./presentation_assets/e.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-electricity-1">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">⚡</span>
+              </div>
+              <div class="ph-title">مكان الصورة الأولى</div>
+              <div class="ph-subtitle">شاشة قراءة بيانات كارت العداد</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/11.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 01 • READY</div>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════════════════════════════════════════
+               مكان الصورة الثانية: شاشة شحن وكتابة الكارت
+               يمكنك حفظ صورتك في presentation_assets باسم 12.png أو تغيير المسار
+          ══════════════════════════════════════════════════════════════ -->
+          <div class="device-frame" title="مكان الصورة الثانية: شاشة شحن وكتابة الكارت">
+            <img src="./presentation_assets/eee.png"
+                 alt="شاشة كتابة رصيد الكارت"
+                 class="device-screen-img mockup-image"
+                 id="electricity-mockup-2"
+                 data-dark="./presentation_assets/eeee.png"
+                 data-light="./presentation_assets/eee.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-electricity-2">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">💳</span>
+              </div>
+              <div class="ph-title">مكان الصورة الثانية</div>
+              <div class="ph-subtitle">شاشة كتابة وتأكيد الشحن على الكارت</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/12.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 02 • READY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 8: كروت الشحن الفردية المطبوعة ─────────────────── -->
+    <section class="slide" data-slide="8" data-cat="كروت الشحن" data-title="طباعة كروت الشحن الفردية لجميع الشبكات">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">08</span> SINGLE VOUCHER CARDS PRINTING
+          </div>
+          <h2 class="slide-title">طباعة كروت الشحن الفردية <span class="highlight">لجميع شبكات الاتصالات</span></h2>
+          <p class="slide-lead">شراء وطباعة فورية لكروت الشحن الفردية (فودافون، أورنج، اتصالات، وي) مع إظهار كود الشحن بوضوح فائق وتوليد باركود المعاملة لسرعة الاستخدام.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">🎟️</div>
+            <div class="feature-text">
+              <h4>فئات متعددة لجميع الشبكات</h4>
+              <p>دعم كامل لكافة الفئات المعتمدة (كروت فكة، ميكسات، نت، وحدات، وباقات أسبوعية وشهرية) مع احتساب الضريبة بدقة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🖨️</div>
+            <div class="feature-text">
+              <h4>بون فوري فائق الوضوح (Instant Voucher)</h4>
+              <p>طباعة كود الشحن (PIN) بحجم خط عريض وكبير، مع رقم المسلسل وتاريخ الصلاحية والتعليمات الرسمية لإتمام الشحن.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-text">
+              <h4>أمان وتشفير أكواد الكروت</h4>
+              <p>تشفير تام لأكواد الكروت حتى لحظة خروجها من رأس الطابعة الحرارية لضمان عدم تسريب الأكواد أو إعادة استخدامها.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-badge">
+            <div class="metric-num">4 Networks</div>
+            <div class="metric-label">فودافون • أورنج • اتصالات مصر • WE</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">&lt; 1.8s</div>
+            <div class="metric-label">سرعة إصدار وطباعة كارت الشحن</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <!-- ── مكان الصورة الأولى: شاشة اختيار الشبكة وفئة الكارت ── -->
+          <div class="device-frame" title="مكان الصورة الأولى: شاشة اختيار فئة الكارت">
+            <img src="./presentation_assets/ca.png"
+                 alt="شاشة اختيار فئة كارت الشحن"
+                 class="device-screen-img mockup-image"
+                 id="single-card-mockup-1"
+                 data-dark="./presentation_assets/caa.png"
+                 data-light="./presentation_assets/ca.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-single-card-1">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">🎟️</span>
+              </div>
+              <div class="ph-title">مكان الصورة الأولى</div>
+              <div class="ph-subtitle">شاشة اختيار شبكة الاتصالات وفئة الكارت</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/13.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 01 • READY</div>
+            </div>
+          </div>
+
+          <!-- ── مكان الصورة الثانية: شاشة بون الكارت وتفاصيل الـ PIN ── -->
+          <div class="device-frame" title="مكان الصورة الثانية: شاشة إيصال كارت الشحن">
+            <img src="./presentation_assets/car.png"
+                 alt="شاشة بون كارت الشحن وكود PIN"
+                 class="device-screen-img mockup-image"
+                 id="single-card-mockup-2"
+                 data-dark="./presentation_assets/carr.png"
+                 data-light="./presentation_assets/car.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-single-card-2">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">🧾</span>
+              </div>
+              <div class="ph-title">مكان الصورة الثانية</div>
+              <div class="ph-subtitle">شاشة بون الكارت المطبوع وتفاصيل الـ PIN</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/14.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 02 • READY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 9: كروت الشحن بالجملة والكميات ──────────────────── -->
+    <section class="slide" data-slide="9" data-cat="كروت الجملة" data-title="شراء وطباعة كروت الشحن بالكميات (Quantity Cards)">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">09</span> BULK & QUANTITY CARDS PRINTING
+          </div>
+          <h2 class="slide-title">منظومة كروت الشحن بالكميات <span class="highlight">لمبيعات الجملة والتجار</span></h2>
+          <p class="slide-lead">حل مخصص لتجار الجملة والمحلات لطلب باقات كروت شحن بأعداد كبيرة (5، 10، 50، 100 كارت) في معاملة واحدة مع جدول طباعة البونات المتسلسلة.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">📦</div>
+            <div class="feature-text">
+              <h4>طلب كميات كروت مجمعة (Bulk Purchasing)</h4>
+              <p>تحديد عدد الكروت والفئة المطلوبة وحساب إجمالي السعر، الخصم التجاري، والعمولة الصافية قبل التأكيد.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔢</div>
+            <div class="feature-text">
+              <h4>طباعة متسلسلة ذكية (PrintQuantityCards)</h4>
+              <p>طباعة الكروت آلياً كارت تلو الآخر مع شاشة متابعة تفاعلية تُظهر عداد الكروت المتبقية والتي تم طباعتها بنجاح.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📜</div>
+            <div class="feature-text">
+              <h4>أرشفة سيريالات كروت الجملة</h4>
+              <p>حفظ سيريالات الكروت المباعة في قاعدة بيانات الماكينة لتسهيل المراجعة وتتبع المبيعات عند أي استفسار.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-badge">
+            <div class="metric-num">حتى 100 كارت</div>
+            <div class="metric-label">إمكانية إصدار وطباعة باقات كميات ضخمة في عملية واحدة</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">Auto-Resume</div>
+            <div class="metric-label">استئناف الطباعة تلقائياً عند تغيير بكرة الورق دون فقدان أي كارت</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <!-- ── مكان الصورة الأولى: شاشة تحديد كميات وفئات الكروت ── -->
+          <div class="device-frame" title="مكان الصورة الأولى: شاشة تحديد كميات الكروت">
+            <img src="./presentation_assets/q.png"
+                 alt="شاشة تحديد كميات كروت الشحن"
+                 class="device-screen-img mockup-image"
+                 id="bulk-cards-mockup-1"
+                 data-dark="./presentation_assets/qq.png"
+                 data-light="./presentation_assets/q.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-bulk-cards-1">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">📦</span>
+              </div>
+              <div class="ph-title">مكان الصورة الأولى</div>
+              <div class="ph-subtitle">شاشة تحديد كميات الكروت وإجمالي الحساب</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/15.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 01 • READY</div>
+            </div>
+          </div>
+
+          <!-- ── مكان الصورة الثانية: شاشة متابعة طباعة الكروت المتسلسلة ── -->
+          <div class="device-frame" title="مكان الصورة الثانية: شاشة طباعة الكروت المتسلسلة">
+            <img src="./presentation_assets/qqq.png"
+                 alt="شاشة متابعة طباعة كروت الجملة"
+                 class="device-screen-img mockup-image"
+                 id="bulk-cards-mockup-2"
+                 data-dark="./presentation_assets/qqqq.png"
+                 data-light="./presentation_assets/qqq.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-bulk-cards-2">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">🖨️</span>
+              </div>
+              <div class="ph-title">مكان الصورة الثانية</div>
+              <div class="ph-subtitle">شاشة متابعة الطباعة المتسلسلة وعداد الكروت</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/16.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 02 • READY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 10: الشحن المباشر والرصيد على الهواء ────────────── -->
+    <section class="slide" data-slide="10" data-cat="الشحن المباشر" data-title="شحن الرصيد المباشر على الهواء (Direct Top-up)">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">10</span> DIRECT MOBILE TOP-UP & AIRTIME
+          </div>
+          <h2 class="slide-title">الشحن المباشر على الهواء <span class="highlight">لرقم العميل فوراً وبدون كروت</span></h2>
+          <p class="slide-lead">شحن الرصيد مباشرة إلى خط هاتف العميل في ثوانٍ معدودة؛ إدخال رقم الهاتف واختيار القيمة أو الباقة مع احتساب الضريبة وعمولة التاجر بدقة مطلقة.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">📱</div>
+            <div class="feature-text">
+              <h4>كشف تلقائي لمشغل الشبكة (Auto Detection)</h4>
+              <p>بمجرد كتابة رقم الهاتف، يتعرف النظام تلقائياً على الشبكة (010 فودافون، 011 اتصالات، 012 أورنج، 015 وي) لمنع أي خطأ بشري.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <h4>مرونة المبالغ والباقات الخاصة</h4>
+              <p>إمكانية شحن أي مبلغ حر، أو اختيار باقات محددة (سوبر كومبو، ميكسات، سوشيال، باقات إنترنت) بلمسة واحدة دون كتابة كود الخدمة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💰</div>
+            <div class="feature-text">
+              <h4>احتساب شفاف للضريبة والعمولة</h4>
+              <p>حساب فوري للمبلغ المطلوب دفعه، الرصيد الصافي الواصل لهاتف العميل بعد ضريبة القيمة المضافة، والربح الفوري المضاف لمحفظة التاجر.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-badge">
+            <div class="metric-num">شحن فوري</div>
+            <div class="metric-label">وصول الرصيد لخط العميل في أقل من ثانيتين</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">رسالة تأكيد SMS</div>
+            <div class="metric-label">إشعار نصي فوري للعميل مع إمكانية طباعة إيصال تأكيد بالماكينة</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <!-- ── مكان الصورة الأولى: شاشة إدخال رقم الهاتف واختيار الباقة ── -->
+          <div class="device-frame" title="مكان الصورة الأولى: شاشة الشحن المباشر">
+            <img src="./presentation_assets/di.png"
+                 alt="شاشة إدخال رقم الهاتف واختيار باقة الرصيد"
+                 class="device-screen-img mockup-image"
+                 id="direct-topup-mockup-1"
+                 data-dark="./presentation_assets/dii.png"
+                 data-light="./presentation_assets/di.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-direct-topup-1">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">📱</span>
+              </div>
+              <div class="ph-title">مكان الصورة الأولى</div>
+              <div class="ph-subtitle">شاشة إدخال رقم الهاتف واختيار باقة الرصيد</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/17.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 01 • READY</div>
+            </div>
+          </div>
+
+          <!-- ── مكان الصورة الثانية: شاشة تأكيد الشحن ونجاح المعاملة ── -->
+          <div class="device-frame" title="مكان الصورة الثانية: شاشة نجاح الشحن المباشر">
+            <img src="./presentation_assets/dir.png"
+                 alt="شاشة تأكيد الشحن المباشر ونجاح العملية"
+                 class="device-screen-img mockup-image"
+                 id="direct-topup-mockup-2"
+                 data-dark="./presentation_assets/dirr.png"
+                 data-light="./presentation_assets/dir.png"
+                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+                 style="display:none;">
+            <div class="mockup-placeholder" id="placeholder-direct-topup-2">
+              <div class="ph-glow-circle">
+                <span class="ph-icon">✅</span>
+              </div>
+              <div class="ph-title">مكان الصورة الثانية</div>
+              <div class="ph-subtitle">شاشة تأكيد المعاملة ونجاح الشحن المباشر</div>
+              <div class="ph-hint">
+                ضع صورتك في المجلد باسم:<br>
+                <code class="ph-filename">presentation_assets/18.png</code><br>
+                <span class="ph-subhint">أو استبدل مسار الصورة في الكود</span>
+              </div>
+              <div class="ph-tag">SLOT 02 • READY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 11: منظومة الطباعة الحرارية والصوت الذكي ────────── -->
+    <section class="slide" data-slide="11" data-cat="أجهزة الـ POS" data-title="الطباعة الحرارية المدمجة والتنبيهات الصوتية الحية">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">11</span> THERMAL PRINTER & POS VOICE ANNOUNCER
+          </div>
+          <h2 class="slide-title">طباعة بونات فورية وصوت ذكي <span class="highlight">لتسريع خدمة العملاء</span></h2>
+          <p class="slide-lead">تكامل كامل على مستوى الهاردوير مع طابعات **Sunmi P2/P2 Pro** مع محاذاة دقيقة وتنسيق جمالي، بالإضافة لنظام تنبيه صوتي ذكي للتاجر.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">🖨️</div>
+            <div class="feature-text">
+              <h4>محرك طباعة حراري متقدم (Sunmi SDK)</h4>
+              <p>طباعة شعار الشركة الرسمي، بيانات المعاملة، وتوليد باركود وQR Code تلقائياً لسرعة القراءة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔊</div>
+            <div class="feature-text">
+              <h4>المنادي الصوتي لعمليات الدفع (Voice Announcer)</h4>
+              <p>نطق فوري باللغة العربية: "تمت العملية بنجاح"، مع رفع صوت الميديا تلقائياً في بيئات المحلات الصاخبة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>معالجة نفاد الورق وحرارة الطابعة</h4>
+              <p>التعامل الآمن مع فتح غطاء الطابعة أو نفاد الورق مع تنبيه التاجر دون أن يتوقف التطبيق أو ينهار.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-badge">
+          <div class="metric-num">58mm ESC/POS</div>
+          <div class="metric-label">التوافق القياسي المعتمد مع ورق الطباعة الحراري لماكينات الدفع الإلكتروني</div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="mockup-wrapper">
+          <div class="device-frame">
+            <img src="./presentation_assets/pri.png" alt="Payment Receipt" class="device-screen-img mockup-image" 
+            data-dark="./presentation_assets/prii.png" data-light="./presentation_assets/pri.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 12: إدارة المحفظة والعمليات المالية ─────────────── -->
+    <section class="slide" data-slide="12" data-cat="الخدمات المالية" data-title="إدارة المحفظة، تحويل الأرصدة، والإيداع البنكي">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">12</span> WALLET, TRANSFERS & BANK DEPOSITS
+          </div>
+          <h2 class="slide-title">إدارة مالية شاملة للتاجر <span class="highlight">لتحويل وسحب وتغذية الرصيد</span></h2>
+          <p class="slide-lead">محفظة رقمية متكاملة تمنح التاجر حرية نقل الأموال لتاجر آخر، أو تغذية رصيده بإيداع بنكي مباشر مع رفع الإيصال عبر كاميرا الماكينة.</p>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="spec-card">
+            <div class="spec-card-icon">💸</div>
+            <div class="spec-card-title">تحويل رصيد لتاجر آخر</div>
+            <div class="spec-card-desc">تحويل فوري بين التجار مع **التحقق من اسم المستلم** قبل التأكيد لمنع التحويل الخاطئ.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">🏦</div>
+            <div class="spec-card-title">الإيداع البنكي الذكي</div>
+            <div class="spec-card-desc">عرض حسابات الشركة البنكية، ورفع صورة إيصال الإيداع بالكاميرا والمعاينة قبل الإرسال.</div>
+          </div>
+          <div class="spec-card highlight-card">
+            <div class="spec-card-icon">💳</div>
+            <div class="spec-card-title">طلب سلفة وتمويل (Credit)</div>
+            <div class="spec-card-desc">طلب حد ائتماني أو سلفة عاجلة بضغطة زر عند نفاد الرصيد لاستمرار حركة البيع دون توقف.</div>
+          </div>
+        </div>
+
+        <div class="feature-item" style="margin-top:20px;">
+          <div class="feature-icon">📜</div>
+          <div class="feature-text">
+            <h4>سجل الحركات النقدية اللحظي</h4>
+            <p>متابعة تفصيلية لكل حركة إضافة، خصم، أو عمولة تم تسجيلها على المحفظة مع التوقيت بالثانية.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <div class="device-frame">
+            <img src="./presentation_assets/w.png" alt="Wallet Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/ww.png" data-light="./presentation_assets/w.png">
+          </div>
+          <div class="device-frame">
+            <img src="./presentation_assets/t.png" alt="Transfer Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/tt.png" data-light="./presentation_assets/t.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 13: تقارير العمليات وتقفيل الوردية اليومية ──────── -->
+    <section class="slide" data-slide="13" data-cat="التقارير والجرد" data-title="تقارير العمليات الفورية وتقفيل الوردية اليومية (Daily Sheet)">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">13</span> TRANSACTION REPORTS & DAILY AUDIT
+          </div>
+          <h2 class="slide-title">تقارير دقيقة وجرد شامل <span class="highlight">لتقفيل الحسابات اليومية بدون عجز</span></h2>
+          <p class="slide-lead">وداعاً للحسابات الورقية؛ يوفر النظام شاشات تقارير متطورة مع فلاتر ذكية وطباعة ملخص الوردية اليومي لضبط الدرج والأرباح بدقة مطلقة.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">🔍</div>
+            <div class="feature-text">
+              <h4>فلاتر بحث متعددة ومتقدمة</h4>
+              <p>تصفية العمليات حسب التاريخ (اليوم، أمس، أسبوع)، نوع الخدمة، أو حالة العملية (ناجحة، فاشلة، مسترجعة).</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📑</div>
+            <div class="feature-text">
+              <h4>إعادة طباعة الإيصال (Reprint Duplicate)</h4>
+              <p>إمكانية إعادة طباعة أي بون قديم بضغطة زر مع كتابة عبارة **[نسخة مكررة]** منعاً لأي تلاعب.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <div class="feature-text">
+              <h4>تقرير الوردية اليومية (Daily Sheet)</h4>
+              <p>جرد كامل لمبيعات اليوم: إجمالي المبيعات، إجمالي العمولات، عدد العمليات، مع زر لطباعة تقرير الوردية كاملاً.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="dual-mockup-wrapper">
+          <div class="device-frame">
+            <img src="./presentation_assets/rr.png" alt="Reports Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/r.png" data-light="./presentation_assets/rr.png">
+          </div>
+          <div class="device-frame">
+            <img src="./presentation_assets/d.png" alt="Daily Sheet Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/dd.png" data-light="./presentation_assets/d.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 14: آلية التعافي من العمليات المعلقة ───────────── -->
+    <section class="slide" data-slide="14" data-cat="الاستقرار والأمان" data-title="حماية المعاملات المعلقة واسترجاع الأموال عند سقوط الشبكة">
+      <div class="slide-full-col">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">14</span> PENDING TRANSACTIONS & REVERSAL RECOVERY
+          </div>
+          <h2 class="slide-title">منظومة الحماية من انقطاع الإنترنت <span class="highlight">صفر خسائر مالية للتاجر</span></h2>
+          <p class="slide-lead">أكبر كابوس يواجه شركات الدفع الإلكتروني هو انقطاع الشبكة أثناء الدفع (Timeout). في ثقة باي تم بناء منظومة ذاتية لفحص المعاملات العالقة والتعافي منها.</p>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="spec-card">
+            <div class="spec-card-icon">1️⃣</div>
+            <div class="spec-card-title">الكشف والاحتفاظ المحلي</div>
+            <div class="spec-card-desc">إذا انقطع الاتصال، يتم تخزين بيانات العملية فوراً في قاعدة بيانات Room المحلية وتصنيفها كـ **PENDING_RECOVERY**.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">2️⃣</div>
+            <div class="spec-card-title">تنبيه ذكي عند عودة التطبيق</div>
+            <div class="spec-card-desc">عند فتح التطبيق أو عودة الشبكة، يوجه النظام التاجر تلقائياً لشاشة المعاملات المعلقة ويمنع تنفيذ عمليات جديدة حتى فحصها.</div>
+          </div>
+          <div class="spec-card highlight-card">
+            <div class="spec-card-icon">3️⃣</div>
+            <div class="spec-card-title">استعلام أو استرجاع فوري</div>
+            <div class="spec-card-desc">يفحص النظام السيرفر: لو تمت بنجاح يطبع الإيصال، ولو فشلت يسترجع الرصيد فوراً ويطبع إشعار استرجاع رسمي.</div>
+          </div>
+        </div>
+
+        <div class="arch-flow-box" style="margin-top:24px;">
+          <div class="arch-node" style="border-color:var(--rose);">
+            <h5 style="color:var(--rose);">انقطاع الشبكة فجأة</h5>
+            <p>طلب معلق بدون رد من السيرفر</p>
+          </div>
+          <div class="arch-arrow">←</div>
+          <div class="arch-node">
+            <h5>حفظ المعاملة محلياً</h5>
+            <p>تخزين Transaction Token في Room</p>
+          </div>
+          <div class="arch-arrow">←</div>
+          <div class="arch-node">
+            <h5>فحص تلقائي للسيرفر</h5>
+            <p>Status Inquiry عبر خلفية النظام</p>
+          </div>
+          <div class="arch-arrow">←</div>
+          <div class="arch-node" style="border-color:var(--primary-neon);">
+            <h5 style="color:var(--primary-neon);">إعادة الرصيد أو الطباعة</h5>
+            <p>خروج بون تأكيد أو بون استرجاع</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 15: إعدادات التطبيق وتخصيص تجربة التاجر ───────── -->
+    <section class="slide" data-slide="15" data-cat="إدارة النظام" data-title="لوحة الإعدادات، تكبير الخطوط، ومزامنة البيانات">
+      <div class="slide-col-left">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">15</span> SETTINGS & SYSTEM DIAGNOSTICS
+          </div>
+          <h2 class="slide-title">تخصيص كامل لماكينات الـ POS <span class="highlight">وأدوات تشخيص ذكية للسيرفر</span></h2>
+          <p class="slide-lead">شاشة إعدادات غنية تمكن التاجر ومدير النظام من ضبط التطبيق، اختبار جودة الاتصال، مسح الكاش، وتحديث أسعار وقوائم الخدمات بلمسة واحدة.</p>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">🔄</div>
+            <div class="feature-text">
+              <h4>مزامنة قاعدة البيانات (Database Sync)</h4>
+              <p>تنزيل أحدث الخدمات والأسعار من السيرفر وتخزينها محلياً للعمل السريع حتى مع ضعف الشبكة.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📶</div>
+            <div class="feature-text">
+              <h4>اختبار سرعة السيرفر (Ping Latency Test)</h4>
+              <p>فحص مباشر لزمن استجابة السيرفر بالميلي ثانية لمساعدة الدعم الفني في تشخيص أي بطء في شبكة التاجر.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔠</div>
+            <div class="feature-text">
+              <h4>التحكم في حجم الخط ومظهر النظام</h4>
+              <p>التبديل بين 3 أحجام للخطوط (صغير / متوسط / كبير)، والتبديل بين اللغتين العربية والإنجليزية بالكامل.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right">
+        <div class="mockup-wrapper">
+          <div class="device-frame">
+            <img src="./presentation_assets/ss.png" alt="Settings Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/s.png" data-light="./presentation_assets/ss.png">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 16: المعمارية التقنية والتكاملات ──────────────── -->
+    <section class="slide" data-slide="16" data-cat="الهندسة البرمجية" data-title="المعمارية التقنية والتكاملات (Tech Stack & Architecture)">
+      <div class="slide-full-col">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">16</span> CLEAN ARCHITECTURE & PRODUCTION STACK
+          </div>
+          <h2 class="slide-title">معمارية برمجية قياسية <span class="highlight">قابلة للتوسع والاستقرار المالي</span></h2>
+          <p class="slide-lead">تم بناء التطبيق وفق توصيات Google الرسمية بنمط **Clean Architecture + MVI/MVVM** لضمان الفصل التام بين واجهة المستخدم، وقواعد العمل، والاتصال بالشبكة.</p>
+        </div>
+
+        <div class="card-grid-4">
+          <div class="spec-card">
+            <div class="spec-card-icon">🎨</div>
+            <div class="spec-card-title">UI & Presentation</div>
+            <div class="spec-card-desc">100% Jetpack Compose (Declarative UI) مع Material 3 و Compose Navigation خفيف وسلس بدون أنشطة متعددة.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">🧠</div>
+            <div class="spec-card-title">Domain & Use Cases</div>
+            <div class="spec-card-desc">عزل كامل لمنطق العمليات المالية؛ كل عملية دفع أو تقرير لها UseCase مستقل ومختبر بدقة عالية.</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-icon">💾</div>
+            <div class="spec-card-title">Data & Offline Caching</div>
+            <div class="spec-card-desc">Room Database v6 + DataStore + Paging 3 لتصفح آلاف المعاملات بسلاسة وبدون أي استهلاك زائد للرام.</div>
+          </div>
+          <div class="spec-card highlight-card">
+            <div class="spec-card-icon">🔌</div>
+            <div class="spec-card-title">Hardware & Integrations</div>
+            <div class="spec-card-desc">دمج مباشر لـ Sunmi Thermal Printer SDK، مكتبات فوري Fawry AARs، و Retrofit 2 مع OkHttp و Hilt DI.</div>
+          </div>
+        </div>
+
+        <div class="metrics-row" style="margin-top:20px;">
+          <div class="metric-badge">
+            <div class="metric-num">Target SDK 36</div>
+            <div class="metric-label">أحدث توافقية مع نظام أندرويد الحديث ومعايير الأمان 2026</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">Zero Crash</div>
+            <div class="metric-label">معالجة شاملة لكافة أخطاء الشبكة والـ Null Safety</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">R8 / Proguard</div>
+            <div class="metric-label">حماية الكود وتقليص حجم الـ APK لأقصى سرعة تحميل</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 17: الجاهزية التامة والتسليم الإنتاجي ───────────── -->
+    <section class="slide cover-slide" data-slide="17" data-cat="التسليم والجاهزية" data-title="الجاهزية التامة والتسليم الإنتاجي">
+      <div class="slide-col-left" style="flex: 0.92;">
+        <div>
+          <div class="slide-category">
+            <span class="badge-num">17</span> PRODUCTION READY • جاهز للتدشين الميداني
+          </div>
+          <div class="cover-title-group">
+            <h2 class="slide-title">جاهزون للانطلاق <span class="highlight">بثقة كاملة!</span></h2>
+            <p class="slide-lead">تم الانتهاء بنجاح من كافة مراحل الهندسة البرمجية، دمج العتاد، الفحص الميداني، والتدقيق المالي. منظومة ثقة باي جاهزة للتشغيل الفوري والتسليم للماكينات.</p>
+          </div>
+        </div>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">📦</div>
+            <div class="feature-text">
+              <h4>ملف الـ Release APK جاهز وموقع رسمياً</h4>
+              <p>نسخة الإنتاج موقعة بكيستور مخصص (Production Keystore) مع تفعيل تقليص الحجم وحماية الكود بـ R8.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔌</div>
+            <div class="feature-text">
+              <h4>تكامل عتادي كامل ومختبر (Hardware Tested)</h4>
+              <p>طابعة Sunmi الحرارية، قارئ كروت IC Chip الذكية، وقارئ الباركود تعمل بتناغم كامل وبزمن استجابة فائق.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-text">
+              <h4>استقرار بنكي وضمان عدم ضياع العمليات</h4>
+              <p>دورة الاسترجاع التلقائي (Pending Reversals) وتشفير AES-256 تحمي حسابات التجار من أي عجز أو خلل شبكة.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-row" style="margin-top:14px;">
+          <div class="metric-badge">
+            <div class="metric-num">v1.0 Ready</div>
+            <div class="metric-label">إصدار إنتاجي متكامل للتجار</div>
+          </div>
+          <div class="metric-badge">
+            <div class="metric-num">&lt; 2s</div>
+            <div class="metric-label">أسرع دورة دفع وطباعة بون</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-col-right" style="flex: 1.48;">
+        <div class="screens-showcase-trio">
+          <!-- ── الشاشة 1: الشاشة الرئيسية ── -->
+          <div class="showcase-screen-card card-left" title="الشاشة الرئيسية - ثقة باي">
+            <img src="./presentation_assets/e.png" alt="Dashboard Screen" class="showcase-img">
+                        <span class="showcase-badge-tag">كروت الكهرباء الذكية</span>
+
+          </div>
+          <!-- ── الشاشة 2 (وسط بطل): شحن كروت الكهرباء ── -->
+          <div class="showcase-screen-card card-center" title="شحن كروت الكهرباء والمرافق">
+            
+            <img src="./presentation_assets/1.png" alt="Smart Electricity Screen" class="showcase-img">
+            <span class="showcase-badge-tag">الرئيسية</span>
+          </div>
+          <!-- ── الشاشة 3: كروت الشحن ── -->
+          <div class="showcase-screen-card card-right" title="كروت الشحن وبون الفاتورة">
+            <img src="./presentation_assets/ca.png" alt="Vouchers Screen" class="showcase-img">
+            <span class="showcase-badge-tag">كروت الشحن</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLIDE 18: مهندس ومطور التطبيق ───────────────────────── -->
+    <section class="slide cover-slide" data-slide="18" data-cat="مطور النظام" data-title="مهندس ومطور التطبيق: م. مصطفى إبراهيم">
+      <div class="slide-full-col" style="height: 100%;">
+        <div style="margin-bottom: 12px;">
+          <div class="slide-category">
+            <span class="badge-num">18</span> LEAD ENGINEER & SOFTWARE ARCHITECT • مهندس ومطور النظام
+          </div>
+          <h2 class="slide-title">مهندس ومطور التطبيق: <span class="highlight">م. مصطفى إبراهيم</span></h2>
+          <p class="slide-lead">تمت هندسة وبرمجة تطبيق "ثقة باي" بالكامل من الصفر بواسطة م. مصطفى إبراهيم كمنظومة POS مالية متطورة تجمع بين جمالية Compose واستقرار النظم البنكية.</p>
+        </div>
+
+        <div class="developer-slide-grid">
+          <!-- ── العمود الأيسر: بطاقة المهندس والتواصل ── -->
+          <div class="dev-profile-card">
+            <div class="dev-avatar-wrap">
+              <div class="dev-avatar-ring">
+                <div class="dev-avatar-inner" style="padding:0; overflow:hidden; background:transparent;">
+                  <img src="./presentation_assets/profile.jpg"
+                       alt="م. مصطفى إبراهيم"
+                       style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%; display:block;">
+                </div>
+              </div>
+              <div class="dev-status-dot" title="جاهز للعمل والتسليم"></div>
+            </div>
+            <div class="dev-name">م. مصطفى إبراهيم</div>
+            <div class="dev-title">Senior Android & POS Systems Engineer</div>
+            <div class="dev-bio">
+              مهندس برمجيات متخصص في بناء وتطوير تطبيقات أندرويد وأنظمة الدفع الإلكتروني (Smart POS) بالاعتماد على معمارية Clean Architecture وأحدث تقنيات Jetpack Compose.
+            </div>
+
+            <div class="dev-contact-group">
+              <a href="https://github.com/mostafa-ibrahim38" target="_blank" class="dev-contact-chip">
+                <span>🐙</span>
+                <span style="direction:ltr; font-family:'JetBrains Mono',monospace; font-weight:700;">github.com/mostafa-ibrahim38</span>
+              </a>
+              <div class="dev-contact-chip">
+                <span>📍</span>
+                <span>Theqa Pay • Senior Android & POS Systems Engineer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── العمود الأيمن: الأعمدة الهندسية التي تم بناؤها ── -->
+          <div class="dev-achievements-col">
+            <div class="dev-pillar-card">
+              <div class="dev-pillar-icon">🎨</div>
+              <div class="dev-pillar-body">
+                <h4>واجهات تفاعلية 100% بنظام Jetpack Compose</h4>
+                <p>بناء منظومة واجهات معلنة (Declarative UI) سريعة الاستجابة، تدعم الوضعين الفاتح والداكن، مع شكلين قابلين للتخصيص للشاشة الرئيسية من الإعدادات.</p>
+              </div>
+            </div>
+
+            <div class="dev-pillar-card">
+              <div class="dev-pillar-icon">🔌</div>
+              <div class="dev-pillar-body">
+                <h4>التكامل المباشر مع عتاد ماكينات Sunmi POS</h4>
+                <p>ربط وبرمجة الطابعة الحرارية لطباعة الباركود والرموز بوضوح عالي، وتفعيل قارئ الشرائح الذكية لكروت الكهرباء والمرافق (منفذ IC Chip / معيار ISO 7816).</p>
+              </div>
+            </div>
+
+            <div class="dev-pillar-card">
+              <div class="dev-pillar-icon">🏗️</div>
+              <div class="dev-pillar-body">
+                <h4>هندسة برمجية قياسية (Clean Architecture + MVI/MVVM)</h4>
+                <p>فصل صارم بين منطق العمليات المالية والبيانات والواجهة، مع حقن التبعيات بـ Hilt DI والتخزين المحلي فائق السرعة عبر Room Database.</p>
+              </div>
+            </div>
+
+            <div class="dev-pillar-card">
+              <div class="dev-pillar-icon">🔒</div>
+              <div class="dev-pillar-body">
+                <h4>الأمان المالي ومكافحة الأخطاء (Zero Crash & Reversals)</h4>
+                <p>تشفير التوكن وكلمات السر والـ PIN بتقنية AES-256 GCM، وتطوير دورة الاسترجاع التلقائي (Pending Reversals) لمنع أي فقدان لأموال التاجر.</p>
+              </div>
+            </div>
+
+            <div class="metrics-row" style="margin-top:2px;">
+              <div class="metric-badge">
+                <div class="metric-num">100% Kotlin</div>
+                <div class="metric-label">كود نقي بدون وسائط معطلة</div>
+              </div>
+              <div class="metric-badge">
+                <div class="metric-num">SDK 36 Ready</div>
+                <div class="metric-label">معايير أندرويد الحديثة 2026</div>
+              </div>
+              <div class="metric-badge">
+                <div class="metric-num">Production Sign</div>
+                <div class="metric-label">APK موقع ومجهز للتشغيل الفوري</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation & Controls Bar -->
+  <footer class="bottom-bar">
+
+
+    <div class="stepper-dots" id="stepper-dots">
+      <!-- Dots generated by JS -->
+    </div>
+
+    <div class="nav-arrow-group">
+      <button class="arrow-btn" id="btn-prev" onclick="prevSlide()" title="السابق (←)">
+        &#8594;
+      </button>
+      <button class="arrow-btn" id="btn-next" onclick="nextSlide()" title="التالي (→)">
+        &#8592;
+      </button>
+    </div>
+  </footer>
+
+  <!-- Speaker Notes Drawer (Toggled by 'S') -->
+  <aside class="speaker-drawer" id="speaker-drawer">
+    <div class="speaker-header">
+      <div class="speaker-title">
+        <span>🎙️ نقاط الحديث للمتحدث (Speaker Talking Points)</span>
+      </div>
+      <button class="nav-btn" onclick="toggleSpeakerNotes()">إغلاق ✕</button>
+    </div>
+    <div class="speaker-content" id="speaker-content">
+      ابدأ بالترحيب بالحضور وشكرهم على وقتهم، وقدم نفسك كفريق عمل "ثقة باي". ركز على أن التطبيق صُمم خصيصاً كحل متكامل لمشاكل ماكينات الـ POS في السوق المصري.
+    </div>
+  </aside>
+
+  <!-- Overview Modal / الفهرس السريع (Toggled by 'O') -->
+  <div class="overview-modal" id="overview-modal" onclick="if(event.target===this) toggleOverviewModal()">
+    <div class="overview-header">
+      <div class="overview-title">📑 فهرس شرائح العرض التقديمي (18 شريحة)</div>
+      <button class="nav-btn" onclick="toggleOverviewModal()">إغلاق [Esc] ✕</button>
+    </div>
+    <div class="overview-grid" id="overview-grid">
+      <!-- Generated by JS -->
+    </div>
+  </div>
+
+  <!-- JavaScript Presentation Engine -->
+  <script>
+    // Speaker notes database for all 18 slides
+    const speakerNotes = [
+      /* 1 */ "رحب بالحاضرين. أكد أن ثقة باي ليست مجرد تطبيق دفع، بل هي منصة POS متكاملة تم بناؤها بمعايير Fintech عالمية لدعم التجار وماكينات Sunmi بكفاءة قصوى.",
+      /* 2 */ "اشرح التحديات الـ 4 في السوق المصري: تعليق الفلوس، بطء البحث، مشاكل الورق، وانعدام الخصوصية. ثم أظهر كيف أن كل ميزة في ثقة باي هي حل مباشر لألم يعاني منه التاجر يومياً.",
+      /* 3 */ "ركز على لغة التصميم: اخترنا الأخضر الزمردي لأنه يعطي ثقة وراحة للعين، والوضع الليلي يوفر بطارية ماكينة الـ POS أثناء الوقوف في المحل طوال اليوم.",
+      /* 4 */ "وضح قوة الأمان: منظومة ثلاثية تشمل تسجيل الدخول، رمز الـ PIN السريع لتسريع خدمة الزبائن بالمحل، والتحقق المزدوج بالـ OTP وربط الماكينة بالـ IMEI مع تشفير AES-256.",
+      /* 5 */ "استعرض الشاشة الرئيسية: وضّح ميزة إمكانية تغيير شكل الشاشة الرئيسية من الإعدادات بين نمطين (النمط الكلاسيكي الممتد ونمط الصفحات التفاعلي ho مع بطاقة السلفة والرصيد)، وتحدث عن وضع الخصوصية ولوحة الأرقام السريعة.",
+      /* 6 */ "اشرح محرك الاستعلام: كيف يجلب تفاصيل الفاتورة ويحسب عمولة التاجر ورسوم الخدمة بشفافية تامة. ووضح منع الخصم المزدوج حتى لو ضغط التاجر على الزر بالخطأ عدة مرات.",
+      /* 7 */ "استعرض شحن كروت الكهرباء والمرافق الذكية: إدخال الكارت في قارئ الشريحة الذكية المدمج بماكينة Sunmi POS (منفذ IC Chip / معيار ISO 7816)، فحص الشحنة القائمة لمنع الشحن المزدوج، وكتابة الرصيد مباشرة على شريحة الكارت مع حماية الشريحة وطباعة إيصال الشحن الرسمي.",
+      /* 8 */ "استعرض كروت الشحن الفردية: شراء وطباعة كارت شحن فردي لشبكات فودافون، أورنج، اتصالات، وWE في أقل من ثانيتين مع طباعة كود الشحن ببنط عريض واضح والباركود الرسمي.",
+      /* 9 */ "أبرز ميزة كروت الشحن بالجملة والكميات (Quantity Cards): تلبية طلبات تجار الجملة بطباعة 10 أو 50 كارت في معاملة واحدة، والطباعة المتسلسلة التلقائية مع عداد رقمي.",
+      /* 10 */ "اشرح خدمة الشحن المباشر على الهواء: إدخال رقم الهاتف مع الكشف التلقائي لمشغل الشبكة وشحن الرصيد أو الباقات فوراً لحساب العميل دون الحاجة لأي كروت ورقية.",
+      /* 11 */ "أظهر التكامل مع طابعات Sunmi: وضوح البون، الباركود، وسماع الصوت العربي 'تمت العملية بنجاح' الذي يريح التاجر في أوقات الضغط بدون الحاجة للتدقيق في الشاشة.",
+      /* 12 */ "تحدث عن المحفظة والعمليات المالية: سهولة تحويل الرصيد لتاجر زميل مع إظهار اسم المستلم للاطمئنان، وميزة رفع صورة إيصال الإيداع البنكي عبر الكاميرا.",
+      /* 13 */ "استعرض التقارير والوردية: فلاتر العمليات الدقيقة، إعادة طباعة أي إيصال مفقود كـ 'نسخة مكررة'، وتقفيل الوردية اليومية (Daily Sheet) التي تمنع أي عجز في الدرج.",
+      /* 14 */ "هذه أهم شريحة للمسؤولين التقنيين والماليين: كيف نضمن عدم ضياع مليم واحد عند انقطاع الإنترنت أثناء العملية من خلال دورة الـ Pending Reversal.",
+      /* 15 */ "أوضح سهولة تشخيص المشاكل عبر الإعدادات: اختبار سرعة السيرفر (Ping) ليعرف التاجر هل البطء من الإنترنت أم من السيرفر، وتحديث قاعدة البيانات بلمسة واحدة.",
+      /* 16 */ "استعرض المعمارية التقنية للمهندسين: Clean Architecture + Jetpack Compose + Room + Hilt. الكود نظيف ومعزول 100% ومجهز للتوسع والتكامل المستقبلي.",
+      /* 17 */ "أكد للحضور الجاهزية التامة للإنطلاق: ملف الـ Release APK موقع وجاهز، كافة ميزات العتاد مختبرة على ماكينات Sunmi، وثائق التسليم مكتملة، واستعرض شاشات التطبيق الحقيقية الثلاث البارزة.",
+      /* 18 */ "قدّم نفسك بصفتك مهندس ومطور المشروع م. مصطفى إبراهيم، استعرض باختصار أهم الأعمدة الهندسية التي بنيت عليها المنظومة (Compose 100%، تكامل العتاد، و Clean Architecture)، وافتح المجال للأسئلة الفنية والديمو الحي المباشر."
+    ];
+
+    let currentSlide = 1;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let isLightMode = false;
+
+    // Elements
+    const curSlideNumEl = document.getElementById('current-slide-num');
+    const totSlideNumEl = document.getElementById('total-slides-num');
+    const progressBar = document.getElementById('slide-progress-bar');
+    const stepperDots = document.getElementById('stepper-dots');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const speakerDrawer = document.getElementById('speaker-drawer');
+    const speakerContent = document.getElementById('speaker-content');
+    const overviewModal = document.getElementById('overview-modal');
+    const overviewGrid = document.getElementById('overview-grid');
+
+    // Initialize
+    totSlideNumEl.textContent = String(totalSlides).padStart(2, '0');
+
+    // Generate Stepper Dots
+    slides.forEach((slide, idx) => {
+      const dot = document.createElement('div');
+      dot.className = `step-dot ${idx === 0 ? 'active' : ''}`;
+      dot.title = `الانتقال لشريحة ${idx + 1}: ${slide.getAttribute('data-title')}`;
+      dot.onclick = () => goToSlide(idx + 1);
+      stepperDots.appendChild(dot);
+    });
+
+    // Generate Overview Cards
+    slides.forEach((slide, idx) => {
+      const card = document.createElement('div');
+      card.className = `overview-card ${idx === 0 ? 'current' : ''}`;
+      card.onclick = () => {
+        goToSlide(idx + 1);
+        toggleOverviewModal();
+      };
+      card.innerHTML = `
+        <div class="overview-card-cat">${slide.getAttribute('data-cat')}</div>
+        <div class="overview-card-title">${slide.getAttribute('data-title')}</div>
+        <div class="overview-card-num">شريحة #${String(idx + 1).padStart(2, '0')}</div>
+      `;
+      overviewGrid.appendChild(card);
+    });
+
+    function updateSlide() {
+      slides.forEach((slide, idx) => {
+        if (idx + 1 === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      // Update counters & progress
+      curSlideNumEl.textContent = String(currentSlide).padStart(2, '0');
+      const progressPercent = (currentSlide / totalSlides) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+
+      // Update dots
+      document.querySelectorAll('.step-dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx + 1 === currentSlide);
+      });
+
+      // Update overview active card
+      document.querySelectorAll('.overview-card').forEach((card, idx) => {
+        card.classList.toggle('current', idx + 1 === currentSlide);
+      });
+
+      // Update speaker notes
+      speakerContent.textContent = speakerNotes[currentSlide - 1] || "لا توجد ملاحظات إضافية لهذه الشريحة.";
+
+      // Button state
+      btnPrev.disabled = currentSlide === 1;
+      btnNext.disabled = currentSlide === totalSlides;
+
+      // Keep URL hash in sync
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, '#slide-' + currentSlide);
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(num) {
+      if (num >= 1 && num <= totalSlides) {
+        currentSlide = num;
+        updateSlide();
+      }
+    }
+
+    function toggleSpeakerNotes() {
+      speakerDrawer.classList.toggle('open');
+    }
+
+    function toggleOverviewModal() {
+      overviewModal.classList.toggle('open');
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.warn("Fullscreen request denied: ", err);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Toggle mockup images between Dark and Light mode
+    function toggleThemeMockups() {
+      isLightMode = !isLightMode;
+      const mockups = document.querySelectorAll('.mockup-image');
+      mockups.forEach(img => {
+        const darkSrc = img.getAttribute('data-dark');
+        const lightSrc = img.getAttribute('data-light');
+        if (isLightMode && lightSrc) {
+          img.src = lightSrc;
+        } else if (darkSrc) {
+          img.src = darkSrc;
+        }
+      });
+    }
+
+    // Keyboard Navigation Handlers
+    document.addEventListener('keydown', (e) => {
+      // Escape closes modals
+      if (e.key === 'Escape') {
+        if (overviewModal.classList.contains('open')) toggleOverviewModal();
+        if (speakerDrawer.classList.contains('open')) toggleSpeakerNotes();
+        return;
+      }
+
+      // Next / Prev Keys
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ' || e.key === 'n' || e.key === 'N') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'p' || e.key === 'P') {
+        prevSlide();
+      } else if (e.key === 's' || e.key === 'S' || e.key === 'س') {
+        toggleSpeakerNotes();
+      } else if (e.key === 'o' || e.key === 'O' || e.key === 'خ') {
+        toggleOverviewModal();
+      } else if (e.key === 'f' || e.key === 'F' || e.key === 'ب') {
+        toggleFullscreen();
+      } else if (e.key === 't' || e.key === 'T' || e.key === 'ف') {
+        toggleThemeMockups();
+      }
+    });
+
+    // Touch Swipe Support for mobile / touch tablets
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+      const threshold = 50;
+      if (touchEndX < touchStartX - threshold) {
+        // Swiped Left in RTL = Next Slide
+        nextSlide();
+      }
+      if (touchEndX > touchStartX + threshold) {
+        // Swiped Right in RTL = Prev Slide
+        prevSlide();
+      }
+    }
+
+    // URL Hash Support (#slide-8 or ?slide=8)
+    function checkHash() {
+      const match = window.location.hash.match(/slide[-_]?(\d+)/i) || window.location.search.match(/slide=(\d+)/i);
+      if (match) {
+        const n = parseInt(match[1], 10);
+        if (n >= 1 && n <= totalSlides) {
+          currentSlide = n;
+        }
+      }
+    }
+
+    window.addEventListener('hashchange', () => {
+      checkHash();
+      updateSlide();
+    });
+
+    // Automatically inject smartphone status bar and bottom chin into all device frames
+    function initDeviceMockupFrames() {
+      document.querySelectorAll('.device-frame').forEach(frame => {
+        if (!frame.querySelector('.mockup-status-bar')) {
+          const sb = document.createElement('div');
+          sb.className = 'mockup-status-bar';
+          sb.innerHTML = `
+            <span>09:41</span>
+            <span class="msb-camera-pill"></span>
+            <span class="msb-icons">
+              <svg class="msb-wifi-icon" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0 0 12 4z"/></svg>
+              <span class="msb-battery"><span class="msb-battery-fill"></span></span>
+            </span>
+          `;
+          frame.prepend(sb);
+        }
+        if (!frame.querySelector('.mockup-bottom-chin')) {
+          const chin = document.createElement('div');
+          chin.className = 'mockup-bottom-chin';
+          chin.innerHTML = `<span class="msb-home-pill"></span>`;
+          frame.appendChild(chin);
+        }
+      });
+    }
+
+    // Initial load
+    initDeviceMockupFrames();
+    checkHash();
+    updateSlide();
+  </script>
+</body>
+</html>
