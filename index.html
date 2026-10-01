@@ -1,14 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ثقة باي (Theqa Pay) — العرض التقديمي الشامل للشركة والمستثمرين</title>
-  
+
   <!-- خطوط Google الرسمية: Cairo و JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ── Theqa Pay Design System Tokens ───────────────────────── */
@@ -18,7 +21,7 @@
       --primary-light: #34D399;
       --primary-deep: #064E3B;
       --primary-mint: #ECFDF5;
-      
+
       --bg-dark: #07151B;
       --bg-darker: #02070A;
       --surface-dark: #0B1E28;
@@ -37,12 +40,12 @@
       --text-main: #FFFFFF;
       --text-sub: #E2E8F0;
       --text-muted: #94A3B8;
-      
+
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
       --radius-xl: 28px;
-      
+
       --shadow-card: 0 16px 36px -8px rgba(0, 0, 0, 0.45);
       --shadow-neon: 0 0 30px rgba(16, 185, 129, 0.25);
       --shadow-gold: 0 0 25px rgba(245, 158, 11, 0.22);
@@ -62,7 +65,9 @@
       color: var(--text-main);
       overflow: hidden;
       height: 100vh;
+      height: 100dvh;
       width: 100vw;
+      width: 100dvw;
       user-select: none;
     }
 
@@ -221,10 +226,23 @@
       box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
     }
 
+    .nav-btn.btn-lang {
+      border-color: rgba(16, 185, 129, 0.5);
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--primary-neon);
+    }
+
+    .nav-btn.btn-lang:hover {
+      background: var(--primary);
+      color: #FFF;
+      border-color: var(--primary-neon);
+    }
+
     /* ── Main Presentation Canvas ────────────────────────────── */
     .presentation-container {
       position: relative;
       height: calc(100vh - 68px - 62px);
+      height: calc(100dvh - 68px - 62px);
       margin-top: 68px;
       padding: 24px 36px;
       display: flex;
@@ -399,9 +417,9 @@
       border: 3.5px solid #1E3A4C;
       border-radius: 42px;
       padding: 0;
-      box-shadow: 
+      box-shadow:
         0 0 0 1.5px rgba(255, 255, 255, 0.12),
-        0 25px 60px -10px rgba(0, 0, 0, 0.85), 
+        0 25px 60px -10px rgba(0, 0, 0, 0.85),
         0 0 35px rgba(16, 185, 129, 0.22);
       position: relative;
       overflow: hidden;
@@ -417,9 +435,9 @@
     .device-frame:hover {
       border-color: var(--primary-neon);
       transform: translateY(-4px) scale(1.015);
-      box-shadow: 
+      box-shadow:
         0 0 0 2px var(--primary-neon),
-        0 30px 70px -10px rgba(0, 0, 0, 0.9), 
+        0 30px 70px -10px rgba(0, 0, 0, 0.9),
         0 0 50px rgba(16, 185, 129, 0.4);
     }
 
@@ -440,7 +458,8 @@
       font-weight: 600;
       color: #FFFFFF;
       letter-spacing: 0.2px;
-      direction: ltr; /* keep time left, icons right */
+      direction: ltr;
+      /* keep time left, icons right */
       user-select: none;
       pointer-events: none;
     }
@@ -451,7 +470,7 @@
       background: #080e14;
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 10px;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,0.9);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.9);
     }
 
     .msb-icons {
@@ -800,9 +819,9 @@
       position: absolute;
       inset: -20% -10%;
       background: radial-gradient(ellipse 80% 70% at 50% 55%,
-        rgba(16, 185, 129, 0.12) 0%,
-        rgba(6, 182, 212, 0.06) 45%,
-        transparent 75%);
+          rgba(16, 185, 129, 0.12) 0%,
+          rgba(6, 182, 212, 0.06) 45%,
+          transparent 75%);
       pointer-events: none;
       z-index: 0;
     }
@@ -851,8 +870,15 @@
     }
 
     @keyframes phoneFloat {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     /* ── Right card: rotated away (mirrored) ── */
@@ -924,7 +950,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      box-shadow: 
+      box-shadow:
         0 20px 50px rgba(0, 0, 0, 0.8),
         0 0 30px rgba(16, 185, 129, 0.15);
       position: relative;
@@ -1081,19 +1107,23 @@
       gap: 7px;
       margin-bottom: 7px;
     }
+
     .slide[data-slide="17"] .feature-item {
       padding: 8px 12px;
       gap: 10px;
     }
+
     .slide[data-slide="17"] .feature-icon {
       width: 32px;
       height: 32px;
       font-size: 14px;
     }
+
     .slide[data-slide="17"] .feature-text h4 {
       font-size: 13.5px;
       margin-bottom: 2px;
     }
+
     .slide[data-slide="17"] .feature-text p {
       font-size: 11.5px;
       line-height: 1.4;
@@ -1102,13 +1132,16 @@
     .slide[data-slide="18"] .metrics-row {
       margin-top: 2px;
     }
+
     .slide[data-slide="18"] .metric-badge {
       padding: 6px 12px;
     }
+
     .slide[data-slide="18"] .metric-num {
       font-size: 17px;
       margin-bottom: 1px;
     }
+
     .slide[data-slide="18"] .metric-label {
       font-size: 10.5px;
     }
@@ -1477,21 +1510,903 @@
       color: var(--text-muted);
     }
 
+    /* ── Custom Sleek Scrollbar ────────────────────────────────── */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(7, 21, 27, 0.6);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.35);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-neon);
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(16, 185, 129, 0.35) rgba(7, 21, 27, 0.6);
+    }
+
+    .mobile-slide-pill {
+      display: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary-neon);
+      background: var(--surface-card);
+      border: 1px solid var(--border-dark);
+      padding: 6px 12px;
+      border-radius: 14px;
+      white-space: nowrap;
+    }
+
+    /* ── Large Desktop Tweaks (1440px+) ──────────────────────── */
+    @media (min-width: 1600px) {
+      .slide {
+        max-width: 1600px;
+        max-height: 900px;
+        padding: 44px 56px;
+      }
+
+      .slide-title {
+        font-size: 38px;
+      }
+
+      .cover-title-group h1 {
+        font-size: 58px;
+      }
+    }
+
+    /* ── Medium Desktops & Laptops (1024px - 1280px) ─────────── */
+    @media (max-width: 1280px) {
+      .presentation-container {
+        padding: 16px 20px;
+      }
+
+      .slide {
+        width: 96%;
+        height: 96%;
+        padding: 28px 34px;
+        gap: 24px;
+      }
+
+      .slide-title {
+        font-size: 28px;
+      }
+
+      .cover-title-group h1 {
+        font-size: 42px;
+      }
+
+      .mockup-wrapper .device-frame {
+        height: 520px;
+      }
+
+      .dual-mockup-wrapper .device-frame {
+        height: 440px;
+      }
+
+      .triple-mockup-wrapper .device-frame {
+        height: 400px;
+      }
+
+      .card-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .developer-slide-grid {
+        grid-template-columns: 300px 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* ── Tablets Landscape & Portrait (769px - 1023px) ────────── */
+    @media (max-width: 1023px) {
+      body {
+        overflow: hidden;
+      }
+
+      .top-nav {
+        height: 62px;
+        padding: 0 18px;
+      }
+
+      .brand-group {
+        gap: 10px;
+      }
+
+      .brand-logo-img {
+        height: 32px;
+      }
+
+      .brand-name {
+        font-size: 16px;
+      }
+
+      .brand-tagline {
+        display: none;
+      }
+
+      .nav-btn {
+        padding: 6px 10px;
+        font-size: 11.5px;
+      }
+
+      .nav-btn .kbd-badge {
+        display: none;
+      }
+
+      .presentation-container {
+        height: calc(100dvh - 62px - 60px);
+        margin-top: 62px;
+        padding: 14px 16px;
+      }
+
+      .slide {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 22px 24px;
+        gap: 18px;
+        flex-direction: column;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .slide-col-left,
+      .slide-col-right,
+      .slide-full-col {
+        width: 100% !important;
+        flex: none !important;
+        padding: 0 !important;
+        overflow-y: visible !important;
+      }
+
+      .slide-col-right {
+        margin-top: 10px;
+        justify-content: center;
+      }
+
+      .mockup-wrapper .device-frame {
+        height: 420px;
+        max-height: 45vh;
+      }
+
+      .dual-mockup-wrapper .device-frame {
+        height: 360px;
+        max-height: 42vh;
+      }
+
+      .triple-mockup-wrapper .device-frame {
+        height: 330px;
+        max-height: 38vh;
+      }
+
+      .screens-showcase-trio {
+        transform: scale(0.82);
+        margin: 10px auto;
+      }
+
+      .developer-slide-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .dev-profile-card {
+        padding: 18px 16px;
+      }
+
+      .dev-contact-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .bottom-bar {
+        height: 60px;
+        padding: 0 18px;
+      }
+
+      .keyboard-hint {
+        display: none;
+      }
+
+      .card-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .arch-flow-box {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .arch-node {
+        width: 100%;
+      }
+
+      .arch-arrow {
+        transform: rotate(90deg);
+        margin: 0 auto;
+      }
+    }
+
+    /* ── Mobile Phones (< 768px) ──────────────────────────────── */
+    @media (max-width: 768px) {
+      body {
+        overflow: hidden;
+      }
+
+      .top-nav {
+        height: 56px;
+        padding: 0 10px;
+      }
+
+      .brand-group {
+        gap: 8px;
+      }
+
+      .brand-logo-img {
+        height: 28px;
+      }
+
+      .brand-name {
+        font-size: 14.5px;
+      }
+
+      .brand-badge {
+        font-size: 9px;
+        padding: 1px 5px;
+      }
+
+      .brand-tagline {
+        display: none;
+      }
+
+      .nav-center {
+        display: none;
+      }
+
+      .nav-actions {
+        gap: 6px;
+      }
+
+      .nav-btn {
+        padding: 6px 9px;
+        font-size: 11px;
+        gap: 4px;
+        border-radius: 8px;
+      }
+
+      .nav-btn .kbd-badge {
+        display: none;
+      }
+
+      .nav-btn.btn-fullscreen {
+        display: none;
+      }
+
+      .presentation-container {
+        height: calc(100dvh - 56px - 58px);
+        margin-top: 56px;
+        padding: 8px;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 16px;
+        padding: 16px 12px 24px 12px;
+        gap: 16px;
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .slide-col-left,
+      .slide-col-right,
+      .slide-full-col {
+        width: 100% !important;
+        flex: none !important;
+        padding: 0 !important;
+        overflow-y: visible !important;
+      }
+
+      .slide-col-left {
+        gap: 12px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .slide-col-right {
+        width: 100% !important;
+        margin-top: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Typography */
+      .slide-category {
+        font-size: 11px;
+        gap: 6px;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+      }
+
+      .slide-category span.badge-num {
+        font-size: 10.5px;
+        padding: 1px 6px;
+      }
+
+      .cover-title-group h1 {
+        font-size: 26px;
+        line-height: 1.25;
+        margin-bottom: 8px;
+      }
+
+      .cover-title-group p {
+        font-size: 13.5px;
+        line-height: 1.55;
+        margin-bottom: 14px;
+      }
+
+      .slide-title {
+        font-size: 20px;
+        line-height: 1.35;
+        margin-bottom: 8px;
+      }
+
+      .slide-lead {
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 14px;
+      }
+
+      /* Features list & items */
+      .features-list {
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .feature-item {
+        padding: 10px 12px;
+        gap: 10px;
+        border-radius: 12px;
+      }
+
+      .feature-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        border-radius: 8px;
+      }
+
+      .feature-text h4 {
+        font-size: 13px;
+        margin-bottom: 2px;
+      }
+
+      .feature-text p {
+        font-size: 11.5px;
+        line-height: 1.4;
+      }
+
+      /* Metrics row */
+      .metrics-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+        gap: 8px;
+        width: 100%;
+        margin-top: 6px;
+      }
+
+      .metric-badge {
+        padding: 8px 10px;
+        border-radius: 10px;
+        gap: 2px;
+      }
+
+      .metric-num {
+        font-size: 16px;
+      }
+
+      .metric-label {
+        font-size: 10.5px;
+        line-height: 1.3;
+      }
+
+      /* Spec Cards Grid */
+      .card-grid-3,
+      .card-grid-4 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .spec-card {
+        padding: 12px 14px;
+        gap: 6px;
+        border-radius: 12px;
+      }
+
+      .spec-card-icon {
+        font-size: 20px;
+      }
+
+      .spec-card-title {
+        font-size: 14px;
+      }
+
+      .spec-card-desc {
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      /* Architecture flow box */
+      .arch-flow-box {
+        flex-direction: column;
+        padding: 12px;
+        gap: 8px;
+        align-items: stretch;
+        margin-top: 12px;
+      }
+
+      .arch-node {
+        width: 100%;
+        padding: 10px 12px;
+      }
+
+      .arch-node h5 {
+        font-size: 13px;
+        margin-bottom: 3px;
+      }
+
+      .arch-node p {
+        font-size: 11px;
+      }
+
+      .arch-arrow {
+        transform: rotate(90deg);
+        margin: 0 auto;
+        font-size: 16px;
+        line-height: 1;
+      }
+
+      /* Device Mockups on Mobile */
+      .mockup-wrapper {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .mockup-wrapper .device-frame {
+        width: min(230px, 72vw);
+        height: auto;
+        aspect-ratio: 9 / 19.5;
+        max-height: 44vh;
+        border-radius: 26px;
+        border-width: 2.5px;
+        margin: 0 auto;
+      }
+
+      .dual-mockup-wrapper {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .dual-mockup-wrapper .device-frame {
+        width: calc(50% - 4px);
+        max-width: 165px;
+        height: auto;
+        aspect-ratio: 9 / 19.5;
+        max-height: 38vh;
+        border-radius: 20px;
+        border-width: 2px;
+      }
+
+      .triple-mockup-wrapper {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+        width: 100%;
+        overflow-x: auto;
+        padding: 2px 0;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .triple-mockup-wrapper .device-frame {
+        flex-shrink: 0;
+        width: calc(33.333% - 4px);
+        min-width: 98px;
+        max-width: 118px;
+        height: auto;
+        aspect-ratio: 9 / 19.5;
+        max-height: 34vh;
+        border-radius: 16px;
+        border-width: 1.5px;
+      }
+
+      /* Scaled status bar and chin */
+      .mockup-status-bar {
+        height: 18px;
+        padding: 0 8px;
+        font-size: 8px;
+      }
+
+      .msb-camera-pill {
+        width: 30px;
+        height: 3.5px;
+      }
+
+      .msb-wifi-icon {
+        width: 8px;
+        height: 8px;
+      }
+
+      .msb-battery {
+        width: 13px;
+        height: 6.5px;
+      }
+
+      .mockup-bottom-chin {
+        height: 12px;
+      }
+
+      .msb-home-pill {
+        width: 38px;
+        height: 2px;
+      }
+
+      /* Placeholders inside mockups */
+      .mockup-placeholder {
+        padding: 8px 6px;
+        gap: 5px;
+        border-radius: 12px;
+      }
+
+      .ph-glow-circle {
+        width: 36px;
+        height: 36px;
+      }
+
+      .ph-icon {
+        font-size: 16px;
+      }
+
+      .ph-title {
+        font-size: 11px;
+      }
+
+      .ph-subtitle {
+        font-size: 9.5px;
+      }
+
+      .ph-hint {
+        font-size: 8.5px;
+        padding: 5px 6px;
+        line-height: 1.35;
+      }
+
+      .ph-filename {
+        font-size: 8px;
+      }
+
+      .ph-subhint {
+        font-size: 7.5px;
+      }
+
+      .ph-tag {
+        font-size: 8px;
+        padding: 2px 6px;
+      }
+
+      /* Slide 17 3D Perspective Showcase on Mobile */
+      .screens-showcase-trio {
+        transform: scale(0.65);
+        transform-origin: center center;
+        width: 100%;
+        height: 300px;
+        margin: 6px auto;
+      }
+
+      /* Slide 18 Developer profile on Mobile */
+      .developer-slide-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .dev-profile-card {
+        padding: 16px 14px;
+        border-radius: 18px;
+      }
+
+      .dev-avatar-wrap {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 8px;
+      }
+
+      .dev-name {
+        font-size: 18px;
+      }
+
+      .dev-title {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+
+      .dev-bio {
+        font-size: 11px;
+        margin-bottom: 10px;
+      }
+
+      .dev-contact-group {
+        gap: 6px;
+      }
+
+      .dev-contact-chip {
+        padding: 6px 10px;
+        font-size: 10.5px;
+        border-radius: 9px;
+      }
+
+      .dev-achievements-col {
+        gap: 8px;
+      }
+
+      .dev-pillar-card {
+        padding: 9px 12px;
+        gap: 10px;
+        border-radius: 12px;
+      }
+
+      .dev-pillar-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        border-radius: 8px;
+      }
+
+      .dev-pillar-body h4 {
+        font-size: 12.5px;
+      }
+
+      .dev-pillar-body p {
+        font-size: 11px;
+        line-height: 1.35;
+      }
+
+      /* Bottom Bar on Mobile */
+      .bottom-bar {
+        height: 58px;
+        padding: 0 10px;
+        justify-content: space-between;
+      }
+
+      .keyboard-hint {
+        display: none;
+      }
+
+      .stepper-dots {
+        max-width: 115px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 2px;
+        gap: 5px;
+      }
+
+      .stepper-dots::-webkit-scrollbar {
+        display: none;
+      }
+
+      .step-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 4px;
+        flex-shrink: 0;
+      }
+
+      .step-dot.active {
+        width: 18px;
+      }
+
+      .mobile-slide-pill {
+        display: inline-flex;
+        font-size: 12px;
+        padding: 5px 9px;
+      }
+
+      .nav-arrow-group {
+        gap: 8px;
+      }
+
+      .arrow-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 10px;
+      }
+
+      /* Overview Modal on Mobile */
+      .overview-modal {
+        padding: 16px 12px;
+      }
+
+      .overview-header {
+        margin-bottom: 14px;
+      }
+
+      .overview-title {
+        font-size: 16px;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+        gap: 10px;
+        padding-bottom: 20px;
+      }
+
+      .overview-card {
+        height: 110px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .overview-card-title {
+        font-size: 12px;
+        margin-top: 4px;
+      }
+
+      .overview-card-cat {
+        font-size: 9.5px;
+      }
+
+      /* Speaker Notes Drawer on Mobile */
+      .speaker-drawer {
+        bottom: 58px;
+        padding: 14px 16px;
+        max-height: 55vh;
+      }
+
+      .speaker-title {
+        font-size: 12.5px;
+      }
+
+      .speaker-content {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+    }
+
+    /* ── Extra Small Mobile (< 380px) ─────────────────────────── */
+    @media (max-width: 380px) {
+      .top-nav {
+        padding: 0 6px;
+      }
+
+      .brand-name {
+        font-size: 13px;
+      }
+
+      .brand-badge {
+        display: none;
+      }
+
+      .nav-btn {
+        padding: 5px 7px;
+        font-size: 10px;
+      }
+
+      .nav-btn .btn-text {
+        display: none;
+      }
+
+      .stepper-dots {
+        max-width: 80px;
+      }
+
+      .screens-showcase-trio {
+        transform: scale(0.55);
+        height: 250px;
+      }
+    }
+
+    /* ── Landscape Mobile (Height < 550px) ────────────────────── */
+    @media (max-height: 550px) and (orientation: landscape) {
+      .top-nav {
+        height: 46px;
+      }
+
+      .presentation-container {
+        height: calc(100dvh - 46px - 48px);
+        margin-top: 46px;
+        padding: 6px 12px;
+      }
+
+      .slide {
+        padding: 12px 16px;
+        flex-direction: row !important;
+        overflow-y: auto !important;
+      }
+
+      .slide-col-left {
+        flex: 1.1 !important;
+        width: auto !important;
+      }
+
+      .slide-col-right {
+        flex: 1 !important;
+        width: auto !important;
+      }
+
+      .mockup-wrapper .device-frame {
+        height: 260px;
+        max-height: 65vh;
+      }
+
+      .dual-mockup-wrapper .device-frame {
+        height: 230px;
+        max-height: 60vh;
+      }
+
+      .triple-mockup-wrapper .device-frame {
+        height: 200px;
+        max-height: 55vh;
+      }
+
+      .bottom-bar {
+        height: 48px;
+        padding: 0 16px;
+      }
+
+      .arrow-btn {
+        width: 34px;
+        height: 34px;
+      }
+    }
+
     /* Print / PDF Mode */
     @media print {
       body {
         overflow: visible !important;
         height: auto !important;
       }
-      .top-nav, .bottom-bar, .ambient-glow-1, .ambient-glow-2, .speaker-drawer, .overview-modal {
+
+      .top-nav,
+      .bottom-bar,
+      .ambient-glow-1,
+      .ambient-glow-2,
+      .speaker-drawer,
+      .overview-modal {
         display: none !important;
       }
+
       .presentation-container {
         height: auto !important;
         margin-top: 0 !important;
         padding: 0 !important;
         display: block !important;
       }
+
       .slide {
         position: relative !important;
         opacity: 1 !important;
@@ -1506,6 +2421,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Background Ambience -->
@@ -1514,19 +2430,15 @@
 
   <!-- Top Sticky Navigation Bar -->
   <header class="top-nav">
-
-      <div class="nav-actions">
-      <button class="nav-btn" onclick="toggleOverviewModal()" title="عرض الفهرس (O)">
-        📑 الفهرس [O]
-      </button>
- 
-      <button class="nav-btn" onclick="toggleThemeMockups()" title="تبديل الثيم الداكن والفاتح (T)">
-        🌓 الثيم [T]
-      </button>
-       </div>
-
-    
-  
+    <div class="brand-group">
+      <img src="./presentation_assets/thika_logo.png" onerror="this.style.display='none'" alt="Theqa Pay Logo"
+        class="brand-logo-img">
+      <div class="brand-text">
+        <div class="brand-name">
+          ثقة باي <span class="brand-badge">THEQA PAY 1.0</span>
+        </div>
+        <div class="brand-tagline">العرض التقديمي الشامل • POS FINTECH</div>
+      </div>
     </div>
 
     <div class="nav-center">
@@ -1535,21 +2447,20 @@
       </div>
     </div>
 
-  
-  
+    <div class="nav-actions">
+      <button class="nav-btn btn-lang" onclick="switchLanguage('en')" title="التبديل إلى النسخة الإنجليزية (English)">
+        <span class="btn-icon">🌐</span> <span class="btn-text">English</span>
+      </button>
+      <button class="nav-btn" onclick="toggleOverviewModal()" title="عرض الفهرس (O)">
+        <span class="btn-icon">📑</span> <span class="btn-text">الفهرس</span> <span class="kbd-badge">[O]</span>
+      </button>
+      <button class="nav-btn" onclick="toggleThemeMockups()" title="تبديل الثيم الداكن والفاتح (T)">
+        <span class="btn-icon">🌓</span> <span class="btn-text">الثيم</span> <span class="kbd-badge">[T]</span>
+      </button>
     </div>
 
     <!-- Progress line -->
     <div class="slide-progress-bar" id="slide-progress-bar" style="width: 6.66%;"></div>
-
-        <div class="brand-group">
-      
-      <div class="brand-text">
-        <div class="brand-name">
-          ثقة باي <span class="brand-badge">THEQA PAY 1.0</span>
-          <img src="./presentation_assets/thika_logo.png" ,onerror="this.src='./presentation_assets/thika_logo.png.png'" alt="Theqa Pay Logo" class="brand-logo-img">
-        </div>
-        
   </header>
 
   <!-- Presentation Slides Canvas -->
@@ -1564,7 +2475,8 @@
           </div>
           <div class="cover-title-group">
             <h1>ثقة باي <span class="highlight">Theqa Pay</span></h1>
-            <p>التطبيق المتكامل للمدفوعات الرقمية والشحن وإدارة المحافظ والتحصيل الفوري المصمم خصيصاً للتجار وماكينات الدفع الإلكتروني (Android POS & Sunmi Terminals).</p>
+            <p>التطبيق المتكامل للمدفوعات الرقمية والشحن وإدارة المحافظ والتحصيل الفوري المصمم خصيصاً للتجار وماكينات
+              الدفع الإلكتروني (Android POS & Sunmi Terminals).</p>
           </div>
         </div>
 
@@ -1580,7 +2492,8 @@
             <div class="feature-icon">🛡️</div>
             <div class="feature-text">
               <h4>أمان بنكي متقدم وحماية العمليات المعلقة</h4>
-              <p>تشفير AES-256، قفل تلقائي عند الخمول، ومنظومة ذكية للتعافي من انقطاع الإنترنت (Fault-Tolerant Reversal).</p>
+              <p>تشفير AES-256، قفل تلقائي عند الخمول، ومنظومة ذكية للتعافي من انقطاع الإنترنت (Fault-Tolerant
+                Reversal).</p>
             </div>
           </div>
         </div>
@@ -1604,7 +2517,10 @@
       <div class="slide-col-right">
         <div class="mockup-wrapper">
           <div class="device-frame">
-            <img src="./presentation_assets/1.png" onerror="this.src='C:/Users/LENOVO/Desktop/ابلكيشن ثقة الجديد/New folder/1.png'" alt="Theqa Pay App Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
+            <img src="./presentation_assets/1.png"
+              onerror="this.src='C:/Users/LENOVO/Desktop/ابلكيشن ثقة الجديد/New folder/1.png'"
+              alt="Theqa Pay App Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png"
+              data-light="./presentation_assets/1.png">
           </div>
         </div>
       </div>
@@ -1617,30 +2533,36 @@
           <div class="slide-category">
             <span class="badge-num">02</span> تحليل القيمة والسوق • VALUE PROPOSITION
           </div>
-          <h2 class="slide-title">التحديات التي تواجه التجار اليوم <span class="highlight">وكيف تغلبت ثقة باي عليها</span></h2>
-          <p class="slide-lead">في سوق المدفوعات المصرية السريعة، يعاني التجار من 4 مشاكل رئيسية في ماكينات الـ POS التقليدية؛ صممت ثقة باي معماريتها لإنهاء هذه المعاناة تماماً.</p>
+          <h2 class="slide-title">التحديات التي تواجه التجار اليوم <span class="highlight">وكيف تغلبت ثقة باي
+              عليها</span></h2>
+          <p class="slide-lead">في سوق المدفوعات المصرية السريعة، يعاني التجار من 4 مشاكل رئيسية في ماكينات الـ POS
+            التقليدية؛ صممت ثقة باي معماريتها لإنهاء هذه المعاناة تماماً.</p>
         </div>
 
         <div class="card-grid-4">
           <div class="spec-card">
             <div class="spec-card-icon">⚠️</div>
             <div class="spec-card-title">تعليق العمليات وضياع الأموال</div>
-            <div class="spec-card-desc">عند سقوط الشبكة يتم خصم الرصيد دون خروج البون. في ثقة باي قمنا ببناء **Pending Transaction Recovery** للاسترجاع الفوري التلقائي.</div>
+            <div class="spec-card-desc">عند سقوط الشبكة يتم خصم الرصيد دون خروج البون. في ثقة باي قمنا ببناء **Pending
+              Transaction Recovery** للاسترجاع الفوري التلقائي.</div>
           </div>
           <div class="spec-card">
             <div class="spec-card-icon">🐢</div>
             <div class="spec-card-title">بطء وتعقيد الوصول للخدمة</div>
-            <div class="spec-card-desc">البحث داخل 50 قسم يستهلك وقتاً ويزيد طوابير الزبائن. وفرنا **لوحة أرقام سريعة (Code Keypad)** للوصول برقم الكود في ثانية واحدة.</div>
+            <div class="spec-card-desc">البحث داخل 50 قسم يستهلك وقتاً ويزيد طوابير الزبائن. وفرنا **لوحة أرقام سريعة
+              (Code Keypad)** للوصول برقم الكود في ثانية واحدة.</div>
           </div>
           <div class="spec-card">
             <div class="spec-card-icon">🖨️</div>
             <div class="spec-card-title">تلف ومشاكل البونات الحرارية</div>
-            <div class="spec-card-desc">بونات غير واضحة وتفتقر للباركود. دمجنا محرك طباعة **Sunmi ESC/POS** مع باركود وQR وتنبيه صوتي لحظي بدون النظر للشاشة.</div>
+            <div class="spec-card-desc">بونات غير واضحة وتفتقر للباركود. دمجنا محرك طباعة **Sunmi ESC/POS** مع باركود
+              وQR وتنبيه صوتي لحظي بدون النظر للشاشة.</div>
           </div>
           <div class="spec-card highlight-card">
             <div class="spec-card-icon">🔒</div>
             <div class="spec-card-title">الأمان والخصوصية في المحل</div>
-            <div class="spec-card-desc">رؤية الزبائن لرصيد التاجر خطر عليه. ابتكرنا **وضع الخصوصية (Privacy Mode)** لإخفاء الرصيد بنقرة، مع القفل الذكي عند انشغال التاجر.</div>
+            <div class="spec-card-desc">رؤية الزبائن لرصيد التاجر خطر عليه. ابتكرنا **وضع الخصوصية (Privacy Mode)**
+              لإخفاء الرصيد بنقرة، مع القفل الذكي عند انشغال التاجر.</div>
           </div>
         </div>
 
@@ -1669,14 +2591,16 @@
     </section>
 
     <!-- ── SLIDE 3: لغة التصميم والسيستم ديزاين ────────────────── -->
-    <section class="slide" data-slide="3" data-cat="هوية النظام" data-title="نظام التصميم والألوان المعتمدة (Design System)">
+    <section class="slide" data-slide="3" data-cat="هوية النظام"
+      data-title="نظام التصميم والألوان المعتمدة (Design System)">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">03</span> THEQA DESIGN SYSTEM & TOKENS
           </div>
           <h2 class="slide-title">لغة تصميم بصرية <span class="highlight">مخصصة لنقاط البيع (Smart POS)</span></h2>
-          <p class="slide-lead">تم بناء هوية النظام وفق أعلى معايير الـ UX/UI للأجهزة اللمسية والشاشات ذات الإضاءة المتفاوتة، بألوان مدروسة تعكس الثقة والاحترافية.</p>
+          <p class="slide-lead">تم بناء هوية النظام وفق أعلى معايير الـ UX/UI للأجهزة اللمسية والشاشات ذات الإضاءة
+            المتفاوتة، بألوان مدروسة تعكس الثقة والاحترافية.</p>
         </div>
 
         <div class="features-list">
@@ -1707,10 +2631,12 @@
       <div class="slide-col-right">
         <div class="dual-mockup-wrapper">
           <div class="device-frame">
-            <img src="./presentation_assets/2.png" alt="Dark Mode" class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
+            <img src="./presentation_assets/2.png" alt="Dark Mode" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
           </div>
           <div class="device-frame">
-            <img src="./presentation_assets/1.png" alt="Light Mode" class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
+            <img src="./presentation_assets/1.png" alt="Light Mode" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/2.png" data-light="./presentation_assets/1.png">
           </div>
         </div>
       </div>
@@ -1724,7 +2650,8 @@
             <span class="badge-num">04</span> AUTHENTICATION & MULTI-LAYER SECURITY
           </div>
           <h2 class="slide-title">دورة مصادقة ودخول حصينة <span class="highlight">بحماية ثلاثية متكاملة</span></h2>
-          <p class="slide-lead">حماية رصيد التاجر هي الأولوية القصوى؛ يمر التاجر بمنظومة أمان مشفرة تدعم تسجيل الدخول الموثق، الدخول السريع برمز الـ Quick PIN، والتحقق المزدوج بالـ OTP.</p>
+          <p class="slide-lead">حماية رصيد التاجر هي الأولوية القصوى؛ يمر التاجر بمنظومة أمان مشفرة تدعم تسجيل الدخول
+            الموثق، الدخول السريع برمز الـ Quick PIN، والتحقق المزدوج بالـ OTP.</p>
         </div>
 
         <div class="card-grid-3">
@@ -1747,34 +2674,40 @@
 
         <div class="metric-badge" style="margin-top:16px;">
           <div class="metric-num">AES-256 GCM + SHA-256</div>
-          <div class="metric-label">تشفير التوكن وكلمات السر والـ PIN داخل مستودع البيانات المشفر EncryptedSharedPreferences</div>
+          <div class="metric-label">تشفير التوكن وكلمات السر والـ PIN داخل مستودع البيانات المشفر
+            EncryptedSharedPreferences</div>
         </div>
       </div>
 
       <div class="slide-col-right" style="flex: 1.4;">
         <div class="triple-mockup-wrapper">
           <div class="device-frame" title="شاشة تسجيل الدخول (Login)">
-            <img src="./presentation_assets/3.png" alt="Login Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/3.png" data-light="./presentation_assets/4.png">
+            <img src="./presentation_assets/3.png" alt="Login Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/3.png" data-light="./presentation_assets/4.png">
           </div>
           <div class="device-frame" title="شاشة كود الـ PIN السريع (Quick PIN)">
-            <img src="./presentation_assets/8.png" alt="Quick PIN Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/8.png" data-light="./presentation_assets/7.png">
+            <img src="./presentation_assets/8.png" alt="Quick PIN Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/8.png" data-light="./presentation_assets/7.png">
           </div>
           <div class="device-frame" title="شاشة التحقق بالـ OTP">
-            <img src="./presentation_assets/6.png" alt="OTP Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/6.png" data-light="./presentation_assets/5.png">
+            <img src="./presentation_assets/6.png" alt="OTP Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/6.png" data-light="./presentation_assets/5.png">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── SLIDE 5: الشاشة الرئيسية ولوحة التحكم ───────────────── -->
-    <section class="slide" data-slide="5" data-cat="الواجهة والداشبورد" data-title="لوحة التحكم الرئيسية وسرعة الوصول للخدمات">
+    <section class="slide" data-slide="5" data-cat="الواجهة والداشبورد"
+      data-title="لوحة التحكم الرئيسية وسرعة الوصول للخدمات">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">05</span> MERCHANT DASHBOARD & QUICK ACTIONS
           </div>
           <h2 class="slide-title">شاشة رئيسية مصممة للسرعة <span class="highlight">وتخصيص كامل من الإعدادات</span></h2>
-          <p class="slide-lead">كل ما يحتاجه التاجر في واجهة واحدة: رصيده اللحظي، وصول سريع للخدمات، مع إمكانية التبديل بين شكلين مختلفين للواجهة مباشرة من الإعدادات.</p>
+          <p class="slide-lead">كل ما يحتاجه التاجر في واجهة واحدة: رصيده اللحظي، وصول سريع للخدمات، مع إمكانية التبديل
+            بين شكلين مختلفين للواجهة مباشرة من الإعدادات.</p>
         </div>
 
         <div class="features-list">
@@ -1813,50 +2746,52 @@
         <div class="dual-mockup-wrapper">
           <!-- ── الشكل الأول: النمط الكلاسيكي الممتد ── -->
           <div class="device-frame" title="الشاشة الرئيسية - الشكل الأول: النمط الكلاسيكي">
-            <img src="./presentation_assets/1.png"
-                 alt="الشاشة الرئيسية - النمط الكلاسيكي"
-                 class="device-screen-img mockup-image"
-                 data-dark="./presentation_assets/2.png"
-                 data-light="./presentation_assets/1.png">
+            <img src="./presentation_assets/1.png" alt="الشاشة الرئيسية - النمط الكلاسيكي"
+              class="device-screen-img mockup-image" data-dark="./presentation_assets/2.png"
+              data-light="./presentation_assets/1.png">
           </div>
           <!-- ── الشكل الثاني: نمط الصفحات وبطاقة السلفة (ho / home) ── -->
           <div class="device-frame" title="الشاشة الرئيسية - الشكل الثاني: نمط الصفحات وبطاقة السلفة (ho)">
-            <img src="./presentation_assets/ho.png"
-                 alt="الشاشة الرئيسية - نمط الصفحات وبطاقة السلفة"
-                 class="device-screen-img mockup-image"
-                 data-dark="./presentation_assets/home.png"
-                 data-light="./presentation_assets/ho.png">
+            <img src="./presentation_assets/ho.png" alt="الشاشة الرئيسية - نمط الصفحات وبطاقة السلفة"
+              class="device-screen-img mockup-image" data-dark="./presentation_assets/home.png"
+              data-light="./presentation_assets/ho.png">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── SLIDE 6: محرك الاستعلام ودفع الفواتير الديناميكي ──────── -->
-    <section class="slide" data-slide="6" data-cat="محرك المدفوعات" data-title="الاستعلام الديناميكي واحتساب الرسوم والعمولات">
+    <section class="slide" data-slide="6" data-cat="محرك المدفوعات"
+      data-title="الاستعلام الديناميكي واحتساب الرسوم والعمولات">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">06</span> DYNAMIC INQUIRY & PAYMENT ENGINE
           </div>
-          <h2 class="slide-title">محرك استعلام ديناميكي ذكي <span class="highlight">يتكيف مع كل أنواع الفواتير</span></h2>
-          <p class="slide-lead">يتصل التطبيق مباشرة بمزودي الخدمات لجلب تفاصيل الفاتورة وحساب الرسوم والعمولة الصافية للتاجر بشفافية مطلقة قبل خصم قرش واحد.</p>
+          <h2 class="slide-title">محرك استعلام ديناميكي ذكي <span class="highlight">يتكيف مع كل أنواع الفواتير</span>
+          </h2>
+          <p class="slide-lead">يتصل التطبيق مباشرة بمزودي الخدمات لجلب تفاصيل الفاتورة وحساب الرسوم والعمولة الصافية
+            للتاجر بشفافية مطلقة قبل خصم قرش واحد.</p>
         </div>
 
         <div class="card-grid-3">
           <div class="spec-card">
             <div class="spec-card-icon">📋</div>
             <div class="spec-card-title">حقول ديناميكية متغيرة</div>
-            <div class="spec-card-desc">الحقول تتولد آلياً حسب متطلبات الخدمة (رقم الهاتف، كود المحافظة، رقم العداد) دون كتابة كود إضافي.</div>
+            <div class="spec-card-desc">الحقول تتولد آلياً حسب متطلبات الخدمة (رقم الهاتف، كود المحافظة، رقم العداد) دون
+              كتابة كود إضافي.</div>
           </div>
           <div class="spec-card">
             <div class="spec-card-icon">💰</div>
             <div class="spec-card-title">شفافية العمولات والرسوم</div>
-            <div class="spec-card-desc">عرض تفصيلي: القيمة الأصلية + الرسوم الإدارية - عمولة التاجر = المبلغ الإجمالي المطلوب تحصيله.</div>
+            <div class="spec-card-desc">عرض تفصيلي: القيمة الأصلية + الرسوم الإدارية - عمولة التاجر = المبلغ الإجمالي
+              المطلوب تحصيله.</div>
           </div>
           <div class="spec-card highlight-card">
             <div class="spec-card-icon">🛡️</div>
             <div class="spec-card-title">منع الخصم المزدوج</div>
-            <div class="spec-card-desc">آلية Idempotency و Double-Tap Prevention تمنع تكرار العملية حتى لو ضغط التاجر 10 مرات متتالية.</div>
+            <div class="spec-card-desc">آلية Idempotency و Double-Tap Prevention تمنع تكرار العملية حتى لو ضغط التاجر 10
+              مرات متتالية.</div>
           </div>
         </div>
 
@@ -1864,7 +2799,8 @@
           <div class="feature-icon">✏️</div>
           <div class="feature-text">
             <h4>دعم الفواتير القابلة للتعديل والجزئية</h4>
-            <p>إمكانية سداد جزء من الفاتورة أو شحن مبلغ حر في الخدمات التي تسمح بذلك، مع قفل الحقل تلقائياً في الفواتير الإلزامية.</p>
+            <p>إمكانية سداد جزء من الفاتورة أو شحن مبلغ حر في الخدمات التي تسمح بذلك، مع قفل الحقل تلقائياً في الفواتير
+              الإلزامية.</p>
           </div>
         </div>
       </div>
@@ -1872,27 +2808,29 @@
       <div class="slide-col-right">
         <div class="dual-mockup-wrapper">
           <div class="device-frame">
-            <img src="./presentation_assets/9.png" alt="Dynamic Inquiry" class="device-screen-img mockup-image" data-dark="./presentation_assets/10.png" data-light="./presentation_assets/9.png">
+            <img src="./presentation_assets/9.png" alt="Dynamic Inquiry" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/10.png" data-light="./presentation_assets/9.png">
           </div>
           <div class="device-frame">
-            <img src="./presentation_assets/18.png" 
-            alt="Payment Confirmation" class="device-screen-img mockup-image"
-   
-            data-dark="./presentation_assets/19.png" data-light="./presentation_assets/18.png">
+            <img src="./presentation_assets/18.png" alt="Payment Confirmation" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/19.png" data-light="./presentation_assets/18.png">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── SLIDE 7: شحن كروت الكهرباء والعدادات الذكية ───────────── -->
-    <section class="slide" data-slide="7" data-cat="الكهرباء والمرافق" data-title="شحن كروت العدادات الذكية عبر منفذ الماكينة (IC Chip)">
+    <section class="slide" data-slide="7" data-cat="الكهرباء والمرافق"
+      data-title="شحن كروت العدادات الذكية عبر منفذ الماكينة (IC Chip)">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">07</span> SMART CARDS & IC CHIP SLOT
           </div>
-          <h2 class="slide-title">شحن وقراءة كروت الكهرباء الذكية <span class="highlight">بإدخال الكارت في منفذ الماكينة (IC Chip)</span></h2>
-          <p class="slide-lead">منظومة ذكية متكاملة لقراءة وشحن كروت عدادات الكهرباء مسبقة الدفع عبر منفذ الشريحة الذكية المدمج بماكينات Sunmi POS مع الحماية التامة للشريحة ومنع تكرار الشحن.</p>
+          <h2 class="slide-title">شحن وقراءة كروت الكهرباء الذكية <span class="highlight">بإدخال الكارت في منفذ الماكينة
+              (IC Chip)</span></h2>
+          <p class="slide-lead">منظومة ذكية متكاملة لقراءة وشحن كروت عدادات الكهرباء مسبقة الدفع عبر منفذ الشريحة الذكية
+            المدمج بماكينات Sunmi POS مع الحماية التامة للشريحة ومنع تكرار الشحن.</p>
         </div>
 
         <div class="features-list">
@@ -1900,14 +2838,16 @@
             <div class="feature-icon">⚡</div>
             <div class="feature-text">
               <h4>قراءة فورية لبيانات العداد (APDU Protocol)</h4>
-              <p>إدخال الكارت في منفذ الماكينة لقراءة الشريحة النحاسية في أقل من ثانيتين: جلب رقم العداد، اسم المشترك، الشريحة، والرصيد المتبقي.</p>
+              <p>إدخال الكارت في منفذ الماكينة لقراءة الشريحة النحاسية في أقل من ثانيتين: جلب رقم العداد، اسم المشترك،
+                الشريحة، والرصيد المتبقي.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🛡️</div>
             <div class="feature-text">
               <h4>فحص الشحنة القائمة (Charge Exist Protection)</h4>
-              <p>آلية استباقية تفحص حالة الكارت وتمنع الشحن المزدوج إذا كان الكارت يحتوي على شحنة سابقة لم تُفرغ في العداد بعد.</p>
+              <p>آلية استباقية تفحص حالة الكارت وتمنع الشحن المزدوج إذا كان الكارت يحتوي على شحنة سابقة لم تُفرغ في
+                العداد بعد.</p>
             </div>
           </div>
           <div class="feature-item">
@@ -1922,7 +2862,8 @@
         <div class="metrics-row">
           <div class="metric-badge">
             <div class="metric-num">ISO 7816</div>
-            <div class="metric-label">التوافق القياسي مع شرائح كروت العدادات (جلوبال، السويدي، شمال وجنوب القاهرة، القناة)</div>
+            <div class="metric-label">التوافق القياسي مع شرائح كروت العدادات (جلوبال، السويدي، شمال وجنوب القاهرة،
+              القناة)</div>
           </div>
           <div class="metric-badge">
             <div class="metric-num">Zero Risk</div>
@@ -1938,15 +2879,12 @@
                يمكنك حفظ صورتك في presentation_assets باسم 11.png أو تغيير المسار
           ══════════════════════════════════════════════════════════════ -->
           <div class="device-frame" title="مكان الصورة الأولى: شاشة قراءة كارت الكهرباء">
-            <img src="./presentation_assets/e.png"
-                 alt="شاشة قراءة كارت العداد"
-                 class="device-screen-img mockup-image"
-                 id="electricity-mockup-1"
-                 data-dark="./presentation_assets/ee.png"
-                 data-light="./presentation_assets/e.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/e.png" alt="شاشة قراءة كارت العداد" class="device-screen-img mockup-image"
+              id="electricity-mockup-1" data-dark="./presentation_assets/ee.png"
+              data-light="./presentation_assets/e.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-electricity-1">
               <div class="ph-glow-circle">
                 <span class="ph-icon">⚡</span>
@@ -1967,15 +2905,12 @@
                يمكنك حفظ صورتك في presentation_assets باسم 12.png أو تغيير المسار
           ══════════════════════════════════════════════════════════════ -->
           <div class="device-frame" title="مكان الصورة الثانية: شاشة شحن وكتابة الكارت">
-            <img src="./presentation_assets/eee.png"
-                 alt="شاشة كتابة رصيد الكارت"
-                 class="device-screen-img mockup-image"
-                 id="electricity-mockup-2"
-                 data-dark="./presentation_assets/eeee.png"
-                 data-light="./presentation_assets/eee.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/eee.png" alt="شاشة كتابة رصيد الكارت" class="device-screen-img mockup-image"
+              id="electricity-mockup-2" data-dark="./presentation_assets/eeee.png"
+              data-light="./presentation_assets/eee.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-electricity-2">
               <div class="ph-glow-circle">
                 <span class="ph-icon">💳</span>
@@ -2002,7 +2937,8 @@
             <span class="badge-num">08</span> SINGLE VOUCHER CARDS PRINTING
           </div>
           <h2 class="slide-title">طباعة كروت الشحن الفردية <span class="highlight">لجميع شبكات الاتصالات</span></h2>
-          <p class="slide-lead">شراء وطباعة فورية لكروت الشحن الفردية (فودافون، أورنج، اتصالات، وي) مع إظهار كود الشحن بوضوح فائق وتوليد باركود المعاملة لسرعة الاستخدام.</p>
+          <p class="slide-lead">شراء وطباعة فورية لكروت الشحن الفردية (فودافون، أورنج، اتصالات، وي) مع إظهار كود الشحن
+            بوضوح فائق وتوليد باركود المعاملة لسرعة الاستخدام.</p>
         </div>
 
         <div class="features-list">
@@ -2010,21 +2946,24 @@
             <div class="feature-icon">🎟️</div>
             <div class="feature-text">
               <h4>فئات متعددة لجميع الشبكات</h4>
-              <p>دعم كامل لكافة الفئات المعتمدة (كروت فكة، ميكسات، نت، وحدات، وباقات أسبوعية وشهرية) مع احتساب الضريبة بدقة.</p>
+              <p>دعم كامل لكافة الفئات المعتمدة (كروت فكة، ميكسات، نت، وحدات، وباقات أسبوعية وشهرية) مع احتساب الضريبة
+                بدقة.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🖨️</div>
             <div class="feature-text">
               <h4>بون فوري فائق الوضوح (Instant Voucher)</h4>
-              <p>طباعة كود الشحن (PIN) بحجم خط عريض وكبير، مع رقم المسلسل وتاريخ الصلاحية والتعليمات الرسمية لإتمام الشحن.</p>
+              <p>طباعة كود الشحن (PIN) بحجم خط عريض وكبير، مع رقم المسلسل وتاريخ الصلاحية والتعليمات الرسمية لإتمام
+                الشحن.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🔒</div>
             <div class="feature-text">
               <h4>أمان وتشفير أكواد الكروت</h4>
-              <p>تشفير تام لأكواد الكروت حتى لحظة خروجها من رأس الطابعة الحرارية لضمان عدم تسريب الأكواد أو إعادة استخدامها.</p>
+              <p>تشفير تام لأكواد الكروت حتى لحظة خروجها من رأس الطابعة الحرارية لضمان عدم تسريب الأكواد أو إعادة
+                استخدامها.</p>
             </div>
           </div>
         </div>
@@ -2045,15 +2984,12 @@
         <div class="dual-mockup-wrapper">
           <!-- ── مكان الصورة الأولى: شاشة اختيار الشبكة وفئة الكارت ── -->
           <div class="device-frame" title="مكان الصورة الأولى: شاشة اختيار فئة الكارت">
-            <img src="./presentation_assets/ca.png"
-                 alt="شاشة اختيار فئة كارت الشحن"
-                 class="device-screen-img mockup-image"
-                 id="single-card-mockup-1"
-                 data-dark="./presentation_assets/caa.png"
-                 data-light="./presentation_assets/ca.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/ca.png" alt="شاشة اختيار فئة كارت الشحن"
+              class="device-screen-img mockup-image" id="single-card-mockup-1" data-dark="./presentation_assets/caa.png"
+              data-light="./presentation_assets/ca.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-single-card-1">
               <div class="ph-glow-circle">
                 <span class="ph-icon">🎟️</span>
@@ -2071,15 +3007,12 @@
 
           <!-- ── مكان الصورة الثانية: شاشة بون الكارت وتفاصيل الـ PIN ── -->
           <div class="device-frame" title="مكان الصورة الثانية: شاشة إيصال كارت الشحن">
-            <img src="./presentation_assets/car.png"
-                 alt="شاشة بون كارت الشحن وكود PIN"
-                 class="device-screen-img mockup-image"
-                 id="single-card-mockup-2"
-                 data-dark="./presentation_assets/carr.png"
-                 data-light="./presentation_assets/car.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/car.png" alt="شاشة بون كارت الشحن وكود PIN"
+              class="device-screen-img mockup-image" id="single-card-mockup-2"
+              data-dark="./presentation_assets/carr.png" data-light="./presentation_assets/car.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-single-card-2">
               <div class="ph-glow-circle">
                 <span class="ph-icon">🧾</span>
@@ -2099,14 +3032,16 @@
     </section>
 
     <!-- ── SLIDE 9: كروت الشحن بالجملة والكميات ──────────────────── -->
-    <section class="slide" data-slide="9" data-cat="كروت الجملة" data-title="شراء وطباعة كروت الشحن بالكميات (Quantity Cards)">
+    <section class="slide" data-slide="9" data-cat="كروت الجملة"
+      data-title="شراء وطباعة كروت الشحن بالكميات (Quantity Cards)">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">09</span> BULK & QUANTITY CARDS PRINTING
           </div>
           <h2 class="slide-title">منظومة كروت الشحن بالكميات <span class="highlight">لمبيعات الجملة والتجار</span></h2>
-          <p class="slide-lead">حل مخصص لتجار الجملة والمحلات لطلب باقات كروت شحن بأعداد كبيرة (5، 10، 50، 100 كارت) في معاملة واحدة مع جدول طباعة البونات المتسلسلة.</p>
+          <p class="slide-lead">حل مخصص لتجار الجملة والمحلات لطلب باقات كروت شحن بأعداد كبيرة (5، 10، 50، 100 كارت) في
+            معاملة واحدة مع جدول طباعة البونات المتسلسلة.</p>
         </div>
 
         <div class="features-list">
@@ -2121,7 +3056,8 @@
             <div class="feature-icon">🔢</div>
             <div class="feature-text">
               <h4>طباعة متسلسلة ذكية (PrintQuantityCards)</h4>
-              <p>طباعة الكروت آلياً كارت تلو الآخر مع شاشة متابعة تفاعلية تُظهر عداد الكروت المتبقية والتي تم طباعتها بنجاح.</p>
+              <p>طباعة الكروت آلياً كارت تلو الآخر مع شاشة متابعة تفاعلية تُظهر عداد الكروت المتبقية والتي تم طباعتها
+                بنجاح.</p>
             </div>
           </div>
           <div class="feature-item">
@@ -2149,15 +3085,12 @@
         <div class="dual-mockup-wrapper">
           <!-- ── مكان الصورة الأولى: شاشة تحديد كميات وفئات الكروت ── -->
           <div class="device-frame" title="مكان الصورة الأولى: شاشة تحديد كميات الكروت">
-            <img src="./presentation_assets/q.png"
-                 alt="شاشة تحديد كميات كروت الشحن"
-                 class="device-screen-img mockup-image"
-                 id="bulk-cards-mockup-1"
-                 data-dark="./presentation_assets/qq.png"
-                 data-light="./presentation_assets/q.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/q.png" alt="شاشة تحديد كميات كروت الشحن"
+              class="device-screen-img mockup-image" id="bulk-cards-mockup-1" data-dark="./presentation_assets/qq.png"
+              data-light="./presentation_assets/q.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-bulk-cards-1">
               <div class="ph-glow-circle">
                 <span class="ph-icon">📦</span>
@@ -2175,15 +3108,12 @@
 
           <!-- ── مكان الصورة الثانية: شاشة متابعة طباعة الكروت المتسلسلة ── -->
           <div class="device-frame" title="مكان الصورة الثانية: شاشة طباعة الكروت المتسلسلة">
-            <img src="./presentation_assets/qqq.png"
-                 alt="شاشة متابعة طباعة كروت الجملة"
-                 class="device-screen-img mockup-image"
-                 id="bulk-cards-mockup-2"
-                 data-dark="./presentation_assets/qqqq.png"
-                 data-light="./presentation_assets/qqq.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/qqq.png" alt="شاشة متابعة طباعة كروت الجملة"
+              class="device-screen-img mockup-image" id="bulk-cards-mockup-2" data-dark="./presentation_assets/qqqq.png"
+              data-light="./presentation_assets/qqq.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-bulk-cards-2">
               <div class="ph-glow-circle">
                 <span class="ph-icon">🖨️</span>
@@ -2203,14 +3133,17 @@
     </section>
 
     <!-- ── SLIDE 10: الشحن المباشر والرصيد على الهواء ────────────── -->
-    <section class="slide" data-slide="10" data-cat="الشحن المباشر" data-title="شحن الرصيد المباشر على الهواء (Direct Top-up)">
+    <section class="slide" data-slide="10" data-cat="الشحن المباشر"
+      data-title="شحن الرصيد المباشر على الهواء (Direct Top-up)">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">10</span> DIRECT MOBILE TOP-UP & AIRTIME
           </div>
-          <h2 class="slide-title">الشحن المباشر على الهواء <span class="highlight">لرقم العميل فوراً وبدون كروت</span></h2>
-          <p class="slide-lead">شحن الرصيد مباشرة إلى خط هاتف العميل في ثوانٍ معدودة؛ إدخال رقم الهاتف واختيار القيمة أو الباقة مع احتساب الضريبة وعمولة التاجر بدقة مطلقة.</p>
+          <h2 class="slide-title">الشحن المباشر على الهواء <span class="highlight">لرقم العميل فوراً وبدون كروت</span>
+          </h2>
+          <p class="slide-lead">شحن الرصيد مباشرة إلى خط هاتف العميل في ثوانٍ معدودة؛ إدخال رقم الهاتف واختيار القيمة أو
+            الباقة مع احتساب الضريبة وعمولة التاجر بدقة مطلقة.</p>
         </div>
 
         <div class="features-list">
@@ -2218,21 +3151,24 @@
             <div class="feature-icon">📱</div>
             <div class="feature-text">
               <h4>كشف تلقائي لمشغل الشبكة (Auto Detection)</h4>
-              <p>بمجرد كتابة رقم الهاتف، يتعرف النظام تلقائياً على الشبكة (010 فودافون، 011 اتصالات، 012 أورنج، 015 وي) لمنع أي خطأ بشري.</p>
+              <p>بمجرد كتابة رقم الهاتف، يتعرف النظام تلقائياً على الشبكة (010 فودافون، 011 اتصالات، 012 أورنج، 015 وي)
+                لمنع أي خطأ بشري.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="feature-icon">⚡</div>
             <div class="feature-text">
               <h4>مرونة المبالغ والباقات الخاصة</h4>
-              <p>إمكانية شحن أي مبلغ حر، أو اختيار باقات محددة (سوبر كومبو، ميكسات، سوشيال، باقات إنترنت) بلمسة واحدة دون كتابة كود الخدمة.</p>
+              <p>إمكانية شحن أي مبلغ حر، أو اختيار باقات محددة (سوبر كومبو، ميكسات، سوشيال، باقات إنترنت) بلمسة واحدة
+                دون كتابة كود الخدمة.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="feature-icon">💰</div>
             <div class="feature-text">
               <h4>احتساب شفاف للضريبة والعمولة</h4>
-              <p>حساب فوري للمبلغ المطلوب دفعه، الرصيد الصافي الواصل لهاتف العميل بعد ضريبة القيمة المضافة، والربح الفوري المضاف لمحفظة التاجر.</p>
+              <p>حساب فوري للمبلغ المطلوب دفعه، الرصيد الصافي الواصل لهاتف العميل بعد ضريبة القيمة المضافة، والربح
+                الفوري المضاف لمحفظة التاجر.</p>
             </div>
           </div>
         </div>
@@ -2253,15 +3189,12 @@
         <div class="dual-mockup-wrapper">
           <!-- ── مكان الصورة الأولى: شاشة إدخال رقم الهاتف واختيار الباقة ── -->
           <div class="device-frame" title="مكان الصورة الأولى: شاشة الشحن المباشر">
-            <img src="./presentation_assets/di.png"
-                 alt="شاشة إدخال رقم الهاتف واختيار باقة الرصيد"
-                 class="device-screen-img mockup-image"
-                 id="direct-topup-mockup-1"
-                 data-dark="./presentation_assets/dii.png"
-                 data-light="./presentation_assets/di.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/di.png" alt="شاشة إدخال رقم الهاتف واختيار باقة الرصيد"
+              class="device-screen-img mockup-image" id="direct-topup-mockup-1"
+              data-dark="./presentation_assets/dii.png" data-light="./presentation_assets/di.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-direct-topup-1">
               <div class="ph-glow-circle">
                 <span class="ph-icon">📱</span>
@@ -2279,15 +3212,12 @@
 
           <!-- ── مكان الصورة الثانية: شاشة تأكيد الشحن ونجاح المعاملة ── -->
           <div class="device-frame" title="مكان الصورة الثانية: شاشة نجاح الشحن المباشر">
-            <img src="./presentation_assets/dir.png"
-                 alt="شاشة تأكيد الشحن المباشر ونجاح العملية"
-                 class="device-screen-img mockup-image"
-                 id="direct-topup-mockup-2"
-                 data-dark="./presentation_assets/dirr.png"
-                 data-light="./presentation_assets/dir.png"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
-                 onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
-                 style="display:none;">
+            <img src="./presentation_assets/dir.png" alt="شاشة تأكيد الشحن المباشر ونجاح العملية"
+              class="device-screen-img mockup-image" id="direct-topup-mockup-2"
+              data-dark="./presentation_assets/dirr.png" data-light="./presentation_assets/dir.png"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+              onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';"
+              style="display:none;">
             <div class="mockup-placeholder" id="placeholder-direct-topup-2">
               <div class="ph-glow-circle">
                 <span class="ph-icon">✅</span>
@@ -2307,14 +3237,16 @@
     </section>
 
     <!-- ── SLIDE 11: منظومة الطباعة الحرارية والصوت الذكي ────────── -->
-    <section class="slide" data-slide="11" data-cat="أجهزة الـ POS" data-title="الطباعة الحرارية المدمجة والتنبيهات الصوتية الحية">
+    <section class="slide" data-slide="11" data-cat="أجهزة الـ POS"
+      data-title="الطباعة الحرارية المدمجة والتنبيهات الصوتية الحية">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">11</span> THERMAL PRINTER & POS VOICE ANNOUNCER
           </div>
           <h2 class="slide-title">طباعة بونات فورية وصوت ذكي <span class="highlight">لتسريع خدمة العملاء</span></h2>
-          <p class="slide-lead">تكامل كامل على مستوى الهاردوير مع طابعات **Sunmi P2/P2 Pro** مع محاذاة دقيقة وتنسيق جمالي، بالإضافة لنظام تنبيه صوتي ذكي للتاجر.</p>
+          <p class="slide-lead">تكامل كامل على مستوى الهاردوير مع طابعات **Sunmi P2/P2 Pro** مع محاذاة دقيقة وتنسيق
+            جمالي، بالإضافة لنظام تنبيه صوتي ذكي للتاجر.</p>
         </div>
 
         <div class="features-list">
@@ -2350,39 +3282,44 @@
       <div class="slide-col-right">
         <div class="mockup-wrapper">
           <div class="device-frame">
-            <img src="./presentation_assets/pri.png" alt="Payment Receipt" class="device-screen-img mockup-image" 
-            data-dark="./presentation_assets/prii.png" data-light="./presentation_assets/pri.png">
+            <img src="./presentation_assets/pri.png" alt="Payment Receipt" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/prii.png" data-light="./presentation_assets/pri.png">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── SLIDE 12: إدارة المحفظة والعمليات المالية ─────────────── -->
-    <section class="slide" data-slide="12" data-cat="الخدمات المالية" data-title="إدارة المحفظة، تحويل الأرصدة، والإيداع البنكي">
+    <section class="slide" data-slide="12" data-cat="الخدمات المالية"
+      data-title="إدارة المحفظة، تحويل الأرصدة، والإيداع البنكي">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">12</span> WALLET, TRANSFERS & BANK DEPOSITS
           </div>
           <h2 class="slide-title">إدارة مالية شاملة للتاجر <span class="highlight">لتحويل وسحب وتغذية الرصيد</span></h2>
-          <p class="slide-lead">محفظة رقمية متكاملة تمنح التاجر حرية نقل الأموال لتاجر آخر، أو تغذية رصيده بإيداع بنكي مباشر مع رفع الإيصال عبر كاميرا الماكينة.</p>
+          <p class="slide-lead">محفظة رقمية متكاملة تمنح التاجر حرية نقل الأموال لتاجر آخر، أو تغذية رصيده بإيداع بنكي
+            مباشر مع رفع الإيصال عبر كاميرا الماكينة.</p>
         </div>
 
         <div class="card-grid-3">
           <div class="spec-card">
             <div class="spec-card-icon">💸</div>
             <div class="spec-card-title">تحويل رصيد لتاجر آخر</div>
-            <div class="spec-card-desc">تحويل فوري بين التجار مع **التحقق من اسم المستلم** قبل التأكيد لمنع التحويل الخاطئ.</div>
+            <div class="spec-card-desc">تحويل فوري بين التجار مع **التحقق من اسم المستلم** قبل التأكيد لمنع التحويل
+              الخاطئ.</div>
           </div>
           <div class="spec-card">
             <div class="spec-card-icon">🏦</div>
             <div class="spec-card-title">الإيداع البنكي الذكي</div>
-            <div class="spec-card-desc">عرض حسابات الشركة البنكية، ورفع صورة إيصال الإيداع بالكاميرا والمعاينة قبل الإرسال.</div>
+            <div class="spec-card-desc">عرض حسابات الشركة البنكية، ورفع صورة إيصال الإيداع بالكاميرا والمعاينة قبل
+              الإرسال.</div>
           </div>
           <div class="spec-card highlight-card">
             <div class="spec-card-icon">💳</div>
             <div class="spec-card-title">طلب سلفة وتمويل (Credit)</div>
-            <div class="spec-card-desc">طلب حد ائتماني أو سلفة عاجلة بضغطة زر عند نفاد الرصيد لاستمرار حركة البيع دون توقف.</div>
+            <div class="spec-card-desc">طلب حد ائتماني أو سلفة عاجلة بضغطة زر عند نفاد الرصيد لاستمرار حركة البيع دون
+              توقف.</div>
           </div>
         </div>
 
@@ -2398,24 +3335,29 @@
       <div class="slide-col-right">
         <div class="dual-mockup-wrapper">
           <div class="device-frame">
-            <img src="./presentation_assets/w.png" alt="Wallet Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/ww.png" data-light="./presentation_assets/w.png">
+            <img src="./presentation_assets/w.png" alt="Wallet Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/ww.png" data-light="./presentation_assets/w.png">
           </div>
           <div class="device-frame">
-            <img src="./presentation_assets/t.png" alt="Transfer Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/tt.png" data-light="./presentation_assets/t.png">
+            <img src="./presentation_assets/t.png" alt="Transfer Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/tt.png" data-light="./presentation_assets/t.png">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── SLIDE 13: تقارير العمليات وتقفيل الوردية اليومية ──────── -->
-    <section class="slide" data-slide="13" data-cat="التقارير والجرد" data-title="تقارير العمليات الفورية وتقفيل الوردية اليومية (Daily Sheet)">
+    <section class="slide" data-slide="13" data-cat="التقارير والجرد"
+      data-title="تقارير العمليات الفورية وتقفيل الوردية اليومية (Daily Sheet)">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">13</span> TRANSACTION REPORTS & DAILY AUDIT
           </div>
-          <h2 class="slide-title">تقارير دقيقة وجرد شامل <span class="highlight">لتقفيل الحسابات اليومية بدون عجز</span></h2>
-          <p class="slide-lead">وداعاً للحسابات الورقية؛ يوفر النظام شاشات تقارير متطورة مع فلاتر ذكية وطباعة ملخص الوردية اليومي لضبط الدرج والأرباح بدقة مطلقة.</p>
+          <h2 class="slide-title">تقارير دقيقة وجرد شامل <span class="highlight">لتقفيل الحسابات اليومية بدون عجز</span>
+          </h2>
+          <p class="slide-lead">وداعاً للحسابات الورقية؛ يوفر النظام شاشات تقارير متطورة مع فلاتر ذكية وطباعة ملخص
+            الوردية اليومي لضبط الدرج والأرباح بدقة مطلقة.</p>
         </div>
 
         <div class="features-list">
@@ -2423,7 +3365,8 @@
             <div class="feature-icon">🔍</div>
             <div class="feature-text">
               <h4>فلاتر بحث متعددة ومتقدمة</h4>
-              <p>تصفية العمليات حسب التاريخ (اليوم، أمس، أسبوع)، نوع الخدمة، أو حالة العملية (ناجحة، فاشلة، مسترجعة).</p>
+              <p>تصفية العمليات حسب التاريخ (اليوم، أمس، أسبوع)، نوع الخدمة، أو حالة العملية (ناجحة، فاشلة، مسترجعة).
+              </p>
             </div>
           </div>
           <div class="feature-item">
@@ -2437,7 +3380,8 @@
             <div class="feature-icon">📊</div>
             <div class="feature-text">
               <h4>تقرير الوردية اليومية (Daily Sheet)</h4>
-              <p>جرد كامل لمبيعات اليوم: إجمالي المبيعات، إجمالي العمولات، عدد العمليات، مع زر لطباعة تقرير الوردية كاملاً.</p>
+              <p>جرد كامل لمبيعات اليوم: إجمالي المبيعات، إجمالي العمولات، عدد العمليات، مع زر لطباعة تقرير الوردية
+                كاملاً.</p>
             </div>
           </div>
         </div>
@@ -2446,41 +3390,49 @@
       <div class="slide-col-right">
         <div class="dual-mockup-wrapper">
           <div class="device-frame">
-            <img src="./presentation_assets/rr.png" alt="Reports Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/r.png" data-light="./presentation_assets/rr.png">
+            <img src="./presentation_assets/rr.png" alt="Reports Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/r.png" data-light="./presentation_assets/rr.png">
           </div>
           <div class="device-frame">
-            <img src="./presentation_assets/d.png" alt="Daily Sheet Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/dd.png" data-light="./presentation_assets/d.png">
+            <img src="./presentation_assets/d.png" alt="Daily Sheet Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/dd.png" data-light="./presentation_assets/d.png">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── SLIDE 14: آلية التعافي من العمليات المعلقة ───────────── -->
-    <section class="slide" data-slide="14" data-cat="الاستقرار والأمان" data-title="حماية المعاملات المعلقة واسترجاع الأموال عند سقوط الشبكة">
+    <section class="slide" data-slide="14" data-cat="الاستقرار والأمان"
+      data-title="حماية المعاملات المعلقة واسترجاع الأموال عند سقوط الشبكة">
       <div class="slide-full-col">
         <div>
           <div class="slide-category">
             <span class="badge-num">14</span> PENDING TRANSACTIONS & REVERSAL RECOVERY
           </div>
-          <h2 class="slide-title">منظومة الحماية من انقطاع الإنترنت <span class="highlight">صفر خسائر مالية للتاجر</span></h2>
-          <p class="slide-lead">أكبر كابوس يواجه شركات الدفع الإلكتروني هو انقطاع الشبكة أثناء الدفع (Timeout). في ثقة باي تم بناء منظومة ذاتية لفحص المعاملات العالقة والتعافي منها.</p>
+          <h2 class="slide-title">منظومة الحماية من انقطاع الإنترنت <span class="highlight">صفر خسائر مالية
+              للتاجر</span></h2>
+          <p class="slide-lead">أكبر كابوس يواجه شركات الدفع الإلكتروني هو انقطاع الشبكة أثناء الدفع (Timeout). في ثقة
+            باي تم بناء منظومة ذاتية لفحص المعاملات العالقة والتعافي منها.</p>
         </div>
 
         <div class="card-grid-3">
           <div class="spec-card">
             <div class="spec-card-icon">1️⃣</div>
             <div class="spec-card-title">الكشف والاحتفاظ المحلي</div>
-            <div class="spec-card-desc">إذا انقطع الاتصال، يتم تخزين بيانات العملية فوراً في قاعدة بيانات Room المحلية وتصنيفها كـ **PENDING_RECOVERY**.</div>
+            <div class="spec-card-desc">إذا انقطع الاتصال، يتم تخزين بيانات العملية فوراً في قاعدة بيانات Room المحلية
+              وتصنيفها كـ **PENDING_RECOVERY**.</div>
           </div>
           <div class="spec-card">
             <div class="spec-card-icon">2️⃣</div>
             <div class="spec-card-title">تنبيه ذكي عند عودة التطبيق</div>
-            <div class="spec-card-desc">عند فتح التطبيق أو عودة الشبكة، يوجه النظام التاجر تلقائياً لشاشة المعاملات المعلقة ويمنع تنفيذ عمليات جديدة حتى فحصها.</div>
+            <div class="spec-card-desc">عند فتح التطبيق أو عودة الشبكة، يوجه النظام التاجر تلقائياً لشاشة المعاملات
+              المعلقة ويمنع تنفيذ عمليات جديدة حتى فحصها.</div>
           </div>
           <div class="spec-card highlight-card">
             <div class="spec-card-icon">3️⃣</div>
             <div class="spec-card-title">استعلام أو استرجاع فوري</div>
-            <div class="spec-card-desc">يفحص النظام السيرفر: لو تمت بنجاح يطبع الإيصال، ولو فشلت يسترجع الرصيد فوراً ويطبع إشعار استرجاع رسمي.</div>
+            <div class="spec-card-desc">يفحص النظام السيرفر: لو تمت بنجاح يطبع الإيصال، ولو فشلت يسترجع الرصيد فوراً
+              ويطبع إشعار استرجاع رسمي.</div>
           </div>
         </div>
 
@@ -2509,14 +3461,17 @@
     </section>
 
     <!-- ── SLIDE 15: إعدادات التطبيق وتخصيص تجربة التاجر ───────── -->
-    <section class="slide" data-slide="15" data-cat="إدارة النظام" data-title="لوحة الإعدادات، تكبير الخطوط، ومزامنة البيانات">
+    <section class="slide" data-slide="15" data-cat="إدارة النظام"
+      data-title="لوحة الإعدادات، تكبير الخطوط، ومزامنة البيانات">
       <div class="slide-col-left">
         <div>
           <div class="slide-category">
             <span class="badge-num">15</span> SETTINGS & SYSTEM DIAGNOSTICS
           </div>
-          <h2 class="slide-title">تخصيص كامل لماكينات الـ POS <span class="highlight">وأدوات تشخيص ذكية للسيرفر</span></h2>
-          <p class="slide-lead">شاشة إعدادات غنية تمكن التاجر ومدير النظام من ضبط التطبيق، اختبار جودة الاتصال، مسح الكاش، وتحديث أسعار وقوائم الخدمات بلمسة واحدة.</p>
+          <h2 class="slide-title">تخصيص كامل لماكينات الـ POS <span class="highlight">وأدوات تشخيص ذكية للسيرفر</span>
+          </h2>
+          <p class="slide-lead">شاشة إعدادات غنية تمكن التاجر ومدير النظام من ضبط التطبيق، اختبار جودة الاتصال، مسح
+            الكاش، وتحديث أسعار وقوائم الخدمات بلمسة واحدة.</p>
         </div>
 
         <div class="features-list">
@@ -2547,43 +3502,51 @@
       <div class="slide-col-right">
         <div class="mockup-wrapper">
           <div class="device-frame">
-            <img src="./presentation_assets/ss.png" alt="Settings Screen" class="device-screen-img mockup-image" data-dark="./presentation_assets/s.png" data-light="./presentation_assets/ss.png">
+            <img src="./presentation_assets/ss.png" alt="Settings Screen" class="device-screen-img mockup-image"
+              data-dark="./presentation_assets/s.png" data-light="./presentation_assets/ss.png">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ── SLIDE 16: المعمارية التقنية والتكاملات ──────────────── -->
-    <section class="slide" data-slide="16" data-cat="الهندسة البرمجية" data-title="المعمارية التقنية والتكاملات (Tech Stack & Architecture)">
+    <section class="slide" data-slide="16" data-cat="الهندسة البرمجية"
+      data-title="المعمارية التقنية والتكاملات (Tech Stack & Architecture)">
       <div class="slide-full-col">
         <div>
           <div class="slide-category">
             <span class="badge-num">16</span> CLEAN ARCHITECTURE & PRODUCTION STACK
           </div>
-          <h2 class="slide-title">معمارية برمجية قياسية <span class="highlight">قابلة للتوسع والاستقرار المالي</span></h2>
-          <p class="slide-lead">تم بناء التطبيق وفق توصيات Google الرسمية بنمط **Clean Architecture + MVI/MVVM** لضمان الفصل التام بين واجهة المستخدم، وقواعد العمل، والاتصال بالشبكة.</p>
+          <h2 class="slide-title">معمارية برمجية قياسية <span class="highlight">قابلة للتوسع والاستقرار المالي</span>
+          </h2>
+          <p class="slide-lead">تم بناء التطبيق وفق توصيات Google الرسمية بنمط **Clean Architecture + MVI/MVVM** لضمان
+            الفصل التام بين واجهة المستخدم، وقواعد العمل، والاتصال بالشبكة.</p>
         </div>
 
         <div class="card-grid-4">
           <div class="spec-card">
             <div class="spec-card-icon">🎨</div>
             <div class="spec-card-title">UI & Presentation</div>
-            <div class="spec-card-desc">100% Jetpack Compose (Declarative UI) مع Material 3 و Compose Navigation خفيف وسلس بدون أنشطة متعددة.</div>
+            <div class="spec-card-desc">100% Jetpack Compose (Declarative UI) مع Material 3 و Compose Navigation خفيف
+              وسلس بدون أنشطة متعددة.</div>
           </div>
           <div class="spec-card">
             <div class="spec-card-icon">🧠</div>
             <div class="spec-card-title">Domain & Use Cases</div>
-            <div class="spec-card-desc">عزل كامل لمنطق العمليات المالية؛ كل عملية دفع أو تقرير لها UseCase مستقل ومختبر بدقة عالية.</div>
+            <div class="spec-card-desc">عزل كامل لمنطق العمليات المالية؛ كل عملية دفع أو تقرير لها UseCase مستقل ومختبر
+              بدقة عالية.</div>
           </div>
           <div class="spec-card">
             <div class="spec-card-icon">💾</div>
             <div class="spec-card-title">Data & Offline Caching</div>
-            <div class="spec-card-desc">Room Database v6 + DataStore + Paging 3 لتصفح آلاف المعاملات بسلاسة وبدون أي استهلاك زائد للرام.</div>
+            <div class="spec-card-desc">Room Database v6 + DataStore + Paging 3 لتصفح آلاف المعاملات بسلاسة وبدون أي
+              استهلاك زائد للرام.</div>
           </div>
           <div class="spec-card highlight-card">
             <div class="spec-card-icon">🔌</div>
             <div class="spec-card-title">Hardware & Integrations</div>
-            <div class="spec-card-desc">دمج مباشر لـ Sunmi Thermal Printer SDK، مكتبات فوري Fawry AARs، و Retrofit 2 مع OkHttp و Hilt DI.</div>
+            <div class="spec-card-desc">دمج مباشر لـ Sunmi Thermal Printer SDK، مكتبات فوري Fawry AARs، و Retrofit 2 مع
+              OkHttp و Hilt DI.</div>
           </div>
         </div>
 
@@ -2605,7 +3568,8 @@
     </section>
 
     <!-- ── SLIDE 17: الجاهزية التامة والتسليم الإنتاجي ───────────── -->
-    <section class="slide cover-slide" data-slide="17" data-cat="التسليم والجاهزية" data-title="الجاهزية التامة والتسليم الإنتاجي">
+    <section class="slide cover-slide" data-slide="17" data-cat="التسليم والجاهزية"
+      data-title="الجاهزية التامة والتسليم الإنتاجي">
       <div class="slide-col-left" style="flex: 0.92;">
         <div>
           <div class="slide-category">
@@ -2613,7 +3577,8 @@
           </div>
           <div class="cover-title-group">
             <h2 class="slide-title">جاهزون للانطلاق <span class="highlight">بثقة كاملة!</span></h2>
-            <p class="slide-lead">تم الانتهاء بنجاح من كافة مراحل الهندسة البرمجية، دمج العتاد، الفحص الميداني، والتدقيق المالي. منظومة ثقة باي جاهزة للتشغيل الفوري والتسليم للماكينات.</p>
+            <p class="slide-lead">تم الانتهاء بنجاح من كافة مراحل الهندسة البرمجية، دمج العتاد، الفحص الميداني، والتدقيق
+              المالي. منظومة ثقة باي جاهزة للتشغيل الفوري والتسليم للماكينات.</p>
           </div>
         </div>
 
@@ -2636,7 +3601,8 @@
             <div class="feature-icon">🛡️</div>
             <div class="feature-text">
               <h4>استقرار بنكي وضمان عدم ضياع العمليات</h4>
-              <p>دورة الاسترجاع التلقائي (Pending Reversals) وتشفير AES-256 تحمي حسابات التجار من أي عجز أو خلل شبكة.</p>
+              <p>دورة الاسترجاع التلقائي (Pending Reversals) وتشفير AES-256 تحمي حسابات التجار من أي عجز أو خلل شبكة.
+              </p>
             </div>
           </div>
         </div>
@@ -2658,12 +3624,12 @@
           <!-- ── الشاشة 1: الشاشة الرئيسية ── -->
           <div class="showcase-screen-card card-left" title="الشاشة الرئيسية - ثقة باي">
             <img src="./presentation_assets/e.png" alt="Dashboard Screen" class="showcase-img">
-                        <span class="showcase-badge-tag">كروت الكهرباء الذكية</span>
+            <span class="showcase-badge-tag">كروت الكهرباء الذكية</span>
 
           </div>
           <!-- ── الشاشة 2 (وسط بطل): شحن كروت الكهرباء ── -->
           <div class="showcase-screen-card card-center" title="شحن كروت الكهرباء والمرافق">
-            
+
             <img src="./presentation_assets/1.png" alt="Smart Electricity Screen" class="showcase-img">
             <span class="showcase-badge-tag">الرئيسية</span>
           </div>
@@ -2677,14 +3643,16 @@
     </section>
 
     <!-- ── SLIDE 18: مهندس ومطور التطبيق ───────────────────────── -->
-    <section class="slide cover-slide" data-slide="18" data-cat="مطور النظام" data-title="مهندس ومطور التطبيق: م. مصطفى إبراهيم">
+    <section class="slide cover-slide" data-slide="18" data-cat="مطور النظام"
+      data-title="مهندس ومطور التطبيق: م. مصطفى إبراهيم">
       <div class="slide-full-col" style="height: 100%;">
         <div style="margin-bottom: 12px;">
           <div class="slide-category">
             <span class="badge-num">18</span> LEAD ENGINEER & SOFTWARE ARCHITECT • مهندس ومطور النظام
           </div>
           <h2 class="slide-title">مهندس ومطور التطبيق: <span class="highlight">م. مصطفى إبراهيم</span></h2>
-          <p class="slide-lead">تمت هندسة وبرمجة تطبيق "ثقة باي" بالكامل من الصفر بواسطة م. مصطفى إبراهيم كمنظومة POS مالية متطورة تجمع بين جمالية Compose واستقرار النظم البنكية.</p>
+          <p class="slide-lead">تمت هندسة وبرمجة تطبيق "ثقة باي" بالكامل من الصفر بواسطة م. مصطفى إبراهيم كمنظومة POS
+            مالية متطورة تجمع بين جمالية Compose واستقرار النظم البنكية.</p>
         </div>
 
         <div class="developer-slide-grid">
@@ -2693,9 +3661,8 @@
             <div class="dev-avatar-wrap">
               <div class="dev-avatar-ring">
                 <div class="dev-avatar-inner" style="padding:0; overflow:hidden; background:transparent;">
-                  <img src="./presentation_assets/profile.jpg"
-                       alt="م. مصطفى إبراهيم"
-                       style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%; display:block;">
+                  <img src="./presentation_assets/profile.jpg" alt="م. مصطفى إبراهيم"
+                    style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%; display:block;">
                 </div>
               </div>
               <div class="dev-status-dot" title="جاهز للعمل والتسليم"></div>
@@ -2703,13 +3670,15 @@
             <div class="dev-name">م. مصطفى إبراهيم</div>
             <div class="dev-title">Senior Android & POS Systems Engineer</div>
             <div class="dev-bio">
-              مهندس برمجيات متخصص في بناء وتطوير تطبيقات أندرويد وأنظمة الدفع الإلكتروني (Smart POS) بالاعتماد على معمارية Clean Architecture وأحدث تقنيات Jetpack Compose.
+              مهندس برمجيات متخصص في بناء وتطوير تطبيقات أندرويد وأنظمة الدفع الإلكتروني (Smart POS) بالاعتماد على
+              معمارية Clean Architecture وأحدث تقنيات Jetpack Compose.
             </div>
 
             <div class="dev-contact-group">
               <a href="https://github.com/mostafa-ibrahim38" target="_blank" class="dev-contact-chip">
                 <span>🐙</span>
-                <span style="direction:ltr; font-family:'JetBrains Mono',monospace; font-weight:700;">github.com/mostafa-ibrahim38</span>
+                <span
+                  style="direction:ltr; font-family:'JetBrains Mono',monospace; font-weight:700;">github.com/mostafa-ibrahim38</span>
               </a>
               <div class="dev-contact-chip">
                 <span>📍</span>
@@ -2724,7 +3693,8 @@
               <div class="dev-pillar-icon">🎨</div>
               <div class="dev-pillar-body">
                 <h4>واجهات تفاعلية 100% بنظام Jetpack Compose</h4>
-                <p>بناء منظومة واجهات معلنة (Declarative UI) سريعة الاستجابة، تدعم الوضعين الفاتح والداكن، مع شكلين قابلين للتخصيص للشاشة الرئيسية من الإعدادات.</p>
+                <p>بناء منظومة واجهات معلنة (Declarative UI) سريعة الاستجابة، تدعم الوضعين الفاتح والداكن، مع شكلين
+                  قابلين للتخصيص للشاشة الرئيسية من الإعدادات.</p>
               </div>
             </div>
 
@@ -2732,7 +3702,8 @@
               <div class="dev-pillar-icon">🔌</div>
               <div class="dev-pillar-body">
                 <h4>التكامل المباشر مع عتاد ماكينات Sunmi POS</h4>
-                <p>ربط وبرمجة الطابعة الحرارية لطباعة الباركود والرموز بوضوح عالي، وتفعيل قارئ الشرائح الذكية لكروت الكهرباء والمرافق (منفذ IC Chip / معيار ISO 7816).</p>
+                <p>ربط وبرمجة الطابعة الحرارية لطباعة الباركود والرموز بوضوح عالي، وتفعيل قارئ الشرائح الذكية لكروت
+                  الكهرباء والمرافق (منفذ IC Chip / معيار ISO 7816).</p>
               </div>
             </div>
 
@@ -2740,7 +3711,8 @@
               <div class="dev-pillar-icon">🏗️</div>
               <div class="dev-pillar-body">
                 <h4>هندسة برمجية قياسية (Clean Architecture + MVI/MVVM)</h4>
-                <p>فصل صارم بين منطق العمليات المالية والبيانات والواجهة، مع حقن التبعيات بـ Hilt DI والتخزين المحلي فائق السرعة عبر Room Database.</p>
+                <p>فصل صارم بين منطق العمليات المالية والبيانات والواجهة، مع حقن التبعيات بـ Hilt DI والتخزين المحلي
+                  فائق السرعة عبر Room Database.</p>
               </div>
             </div>
 
@@ -2748,7 +3720,8 @@
               <div class="dev-pillar-icon">🔒</div>
               <div class="dev-pillar-body">
                 <h4>الأمان المالي ومكافحة الأخطاء (Zero Crash & Reversals)</h4>
-                <p>تشفير التوكن وكلمات السر والـ PIN بتقنية AES-256 GCM، وتطوير دورة الاسترجاع التلقائي (Pending Reversals) لمنع أي فقدان لأموال التاجر.</p>
+                <p>تشفير التوكن وكلمات السر والـ PIN بتقنية AES-256 GCM، وتطوير دورة الاسترجاع التلقائي (Pending
+                  Reversals) لمنع أي فقدان لأموال التاجر.</p>
               </div>
             </div>
 
@@ -2776,33 +3749,20 @@
   <!-- Bottom Navigation & Controls Bar -->
   <footer class="bottom-bar">
 
-
     <div class="stepper-dots" id="stepper-dots">
       <!-- Dots generated by JS -->
     </div>
 
     <div class="nav-arrow-group">
-      <button class="arrow-btn" id="btn-prev" onclick="prevSlide()" title="السابق (←)">
+      <button class="arrow-btn" id="btn-prev" onclick="prevSlide()" title="السابق (←)" aria-label="الشريحة السابقة">
         &#8594;
       </button>
-      <button class="arrow-btn" id="btn-next" onclick="nextSlide()" title="التالي (→)">
+      <span class="mobile-slide-pill" id="mobile-slide-pill">01 / 18</span>
+      <button class="arrow-btn" id="btn-next" onclick="nextSlide()" title="التالي (→)" aria-label="الشريحة التالية">
         &#8592;
       </button>
     </div>
   </footer>
-
-  <!-- Speaker Notes Drawer (Toggled by 'S') -->
-  <aside class="speaker-drawer" id="speaker-drawer">
-    <div class="speaker-header">
-      <div class="speaker-title">
-        <span>🎙️ نقاط الحديث للمتحدث (Speaker Talking Points)</span>
-      </div>
-      <button class="nav-btn" onclick="toggleSpeakerNotes()">إغلاق ✕</button>
-    </div>
-    <div class="speaker-content" id="speaker-content">
-      ابدأ بالترحيب بالحضور وشكرهم على وقتهم، وقدم نفسك كفريق عمل "ثقة باي". ركز على أن التطبيق صُمم خصيصاً كحل متكامل لمشاكل ماكينات الـ POS في السوق المصري.
-    </div>
-  </aside>
 
   <!-- Overview Modal / الفهرس السريع (Toggled by 'O') -->
   <div class="overview-modal" id="overview-modal" onclick="if(event.target===this) toggleOverviewModal()">
@@ -2888,6 +3848,7 @@
       slides.forEach((slide, idx) => {
         if (idx + 1 === currentSlide) {
           slide.classList.add('active');
+          slide.scrollTop = 0; // reset scroll position for mobile viewing
         } else {
           slide.classList.remove('active');
         }
@@ -2895,13 +3856,24 @@
 
       // Update counters & progress
       curSlideNumEl.textContent = String(currentSlide).padStart(2, '0');
+      const mobilePill = document.getElementById('mobile-slide-pill');
+      if (mobilePill) {
+        mobilePill.textContent = `${String(currentSlide).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+      }
       const progressPercent = (currentSlide / totalSlides) * 100;
       progressBar.style.width = `${progressPercent}%`;
 
-      // Update dots
+      // Update dots & auto-scroll dot strip on mobile
       document.querySelectorAll('.step-dot').forEach((dot, idx) => {
         dot.classList.toggle('active', idx + 1 === currentSlide);
       });
+      if (stepperDots && stepperDots.scrollWidth > stepperDots.clientWidth) {
+        const activeDot = stepperDots.children[currentSlide - 1];
+        if (activeDot) {
+          const scrollPos = activeDot.offsetLeft - (stepperDots.clientWidth / 2) + (activeDot.clientWidth / 2);
+          stepperDots.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        }
+      }
 
       // Update overview active card
       document.querySelectorAll('.overview-card').forEach((card, idx) => {
@@ -2977,6 +3949,14 @@
       });
     }
 
+    function switchLanguage(lang) {
+      if (lang === 'en') {
+        window.location.href = 'index_en.html#slide-' + currentSlide;
+      } else {
+        window.location.href = 'index.html#slide-' + currentSlide;
+      }
+    }
+
     // Keyboard Navigation Handlers
     document.addEventListener('keydown', (e) => {
       // Escape closes modals
@@ -3002,28 +3982,36 @@
       }
     });
 
-    // Touch Swipe Support for mobile / touch tablets
+    // Touch Swipe Support for mobile / touch tablets (with horizontal discrimination)
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
 
     document.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, false);
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
 
     document.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].screenX;
+      touchEndX = e.changedTouches[0].clientX;
+      touchEndY = e.changedTouches[0].clientY;
       handleSwipe();
-    }, false);
+    }, { passive: true });
 
     function handleSwipe() {
-      const threshold = 50;
-      if (touchEndX < touchStartX - threshold) {
-        // Swiped Left in RTL = Next Slide
-        nextSlide();
-      }
-      if (touchEndX > touchStartX + threshold) {
-        // Swiped Right in RTL = Prev Slide
-        prevSlide();
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      const threshold = 45;
+      // Only horizontal swipes trigger slide change, avoiding conflict with vertical scrolling
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+        if (diffX < 0) {
+          // Swiped Left in RTL = Next Slide
+          nextSlide();
+        } else {
+          // Swiped Right in RTL = Prev Slide
+          prevSlide();
+        }
       }
     }
 
@@ -3074,4 +4062,5 @@
     updateSlide();
   </script>
 </body>
+
 </html>
